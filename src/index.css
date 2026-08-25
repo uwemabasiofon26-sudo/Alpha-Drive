@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 184 58% 9%;
+    --foreground: 210 5% 91%;
+    --card: 184 45% 12%;
+    --card-foreground: 210 5% 91%;
+    --popover: 184 45% 12%;
+    --popover-foreground: 210 5% 91%;
+    --primary: 38 63% 84%;
+    --primary-foreground: 184 58% 9%;
+    --secondary: 184 45% 21%;
+    --secondary-foreground: 210 5% 91%;
+    --muted: 184 45% 18%;
+    --muted-foreground: 184 12% 72%;
+    --accent: 184 45% 21%;
+    --accent-foreground: 210 5% 91%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 5% 91%;
+    --border: 184 35% 22%;
+    --input: 184 35% 22%;
+    --ring: 38 63% 84%;
+    --radius: 0.25rem;
+    --font-heading: "Archivo", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background-color: #0A2426;
+  }
+
+  ::selection {
+    background-color: #F0DDBC;
+    color: #0A2426;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+    font-stretch: 125%;
+    letter-spacing: -0.02em;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gold-text {
+    color: #F0DDBC;
+  }
+
+  .frame-border {
+    position: relative;
+  }
+  .frame-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(240, 221, 188, 0.35);
+    pointer-events: none;
+  }
+  .frame-corner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(#F0DDBC, #F0DDBC) top left,
+      linear-gradient(#F0DDBC, #F0DDBC) top left,
+      linear-gradient(#F0DDBC, #F0DDBC) top right,
+      linear-gradient(#F0DDBC, #F0DDBC) top right,
+      linear-gradient(#F0DDBC, #F0DDBC) bottom left,
+      linear-gradient(#F0DDBC, #F0DDBC) bottom left,
+      linear-gradient(#F0DDBC, #F0DDBC) bottom right,
+      linear-gradient(#F0DDBC, #F0DDBC) bottom right;
+    background-repeat: no-repeat;
+    background-size: 18px 1px, 1px 18px, 18px 1px, 1px 18px, 18px 1px, 1px 18px, 18px 1px, 1px 18px;
+  }
+
+  .grain {
+    background-image: radial-gradient(rgba(232,233,234,0.04) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .snap-x-mandatory {
+    scroll-snap-type: x mandatory;
+  }
+  .snap-center {
+    scroll-snap-align: center;
+  }
+}
