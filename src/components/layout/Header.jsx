@@ -77,7 +77,7 @@ export default function Header() {
                         className="flex items-center justify-between px-5 py-3 text-sm text-av-alloy/80 hover:bg-av-teal/40 hover:text-av-gold transition-colors border-b border-av-teal/20 last:border-0"
                       >
                         <span>{p.name}</span>
-                        <span className="text-[10px] uppercase tracking-[0.15em] text-av-alloy/40">{p.category}</span>
+                        <span className="text-[10px] uppercase tracking-[0.15em] text-av-alloy/70">{p.category}</span>
                       </Link>
                     ))}
                   </motion.div>
@@ -131,14 +131,14 @@ export default function Header() {
               </button>
             </div>
             <nav className="px-5 pt-6 flex flex-col">
-              <Link to="/" className="py-3 border-b border-av-teal/30 font-display text-lg font-bold tracking-tight text-av-alloy hover:text-av-gold transition-colors">
+              <Link to="/" className="py-3 border-b border-av-teal/30 font-display text-base font-semibold tracking-tight text-av-alloy hover:text-av-gold transition-colors">
                 Home
               </Link>
 
               {/* Products expandable */}
               <button
                 onClick={() => setMobileProducts((v) => !v)}
-                className="py-3 border-b border-av-teal/30 font-display text-lg font-bold tracking-tight text-av-alloy hover:text-av-gold transition-colors flex items-center justify-between"
+                className="py-3 border-b border-av-teal/30 font-display text-base font-semibold tracking-tight text-av-alloy hover:text-av-gold transition-colors flex items-center justify-between"
               >
                 Products
                 {mobileProducts ? <Minus className="h-5 w-5 text-av-gold" /> : <Plus className="h-5 w-5 text-av-gold" />}
@@ -175,7 +175,7 @@ export default function Header() {
                 <Link
                   key={l.to}
                   to={l.to}
-                  className="py-3 border-b border-av-teal/30 font-display text-lg font-bold tracking-tight text-av-alloy hover:text-av-gold transition-colors"
+                  className="py-3 border-b border-av-teal/30 font-display text-base font-semibold tracking-tight text-av-alloy hover:text-av-gold transition-colors"
                 >
                   {l.label}
                 </Link>

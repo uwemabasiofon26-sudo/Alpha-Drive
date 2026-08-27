@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Star } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { formatNZD } from "@/lib/brand";
 import { useCart } from "@/context/CartContext";
@@ -47,7 +48,17 @@ export default function ProductCard({ product, index = 0 }) {
           <h3 className="font-display text-base md:text-xl font-bold tracking-tight text-av-alloy group-hover:text-av-gold transition-colors">
             {product.name}
           </h3>
-          <p className="text-xs md:text-sm text-av-alloy/60 mt-1">{product.tagline}</p>
+          {/* Category label: text-av-alloy/80 (not /60) to keep contrast
+              readable on the dark background for low-vision users. */}
+          <p className="text-xs md:text-sm text-av-alloy/80 mt-1">{product.tagline}</p>
+          <div className="mt-1.5 flex items-center gap-1.5 text-[11px] text-av-alloy/80">
+            <div className="flex text-av-gold">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-3 w-3 fill-av-gold text-av-gold" />
+              ))}
+            </div>
+            <span>4.9 (128)</span>
+          </div>
         </Link>
 
         {hasSub ? (

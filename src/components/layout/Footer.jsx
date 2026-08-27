@@ -70,20 +70,22 @@ export default function Footer() {
 
           <div>
             <h4 className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-5">System Status</h4>
-            <div className="space-y-4">
+            {/* Definition list: label/value pairs are machine-readable for
+                screen readers, unlike plain stacked divs. */}
+            <dl className="space-y-4">
               <div>
-                <div className="text-[10px] uppercase tracking-[0.25em] text-av-alloy/40">Currency</div>
-                <div className="text-av-alloy mt-0.5">{CURRENCY}</div>
+                <dt className="text-[10px] uppercase tracking-[0.25em] text-av-alloy/40">Currency</dt>
+                <dd className="text-av-alloy mt-0.5">{CURRENCY}</dd>
               </div>
               <div>
-                <div className="text-[10px] uppercase tracking-[0.25em] text-av-alloy/40">Shipping</div>
-                <div className="text-emerald-400 mt-0.5">Operational</div>
+                <dt className="text-[10px] uppercase tracking-[0.25em] text-av-alloy/40">Shipping</dt>
+                <dd className="text-emerald-400 mt-0.5">Operational</dd>
               </div>
               <div>
-                <div className="text-[10px] uppercase tracking-[0.25em] text-av-alloy/40">NZ Time</div>
-                <div className="text-av-alloy mt-0.5 font-mono">{time}</div>
+                <dt className="text-[10px] uppercase tracking-[0.25em] text-av-alloy/40">NZ Time</dt>
+                <dd className="text-av-alloy mt-0.5 font-mono">{time}</dd>
               </div>
-            </div>
+            </dl>
             <div className="flex gap-4 mt-6">
               <a href="#" aria-label="Facebook" className="text-av-alloy/60 hover:text-av-gold transition-colors"><Facebook className="h-5 w-5" /></a>
               <a href="#" aria-label="Instagram" className="text-av-alloy/60 hover:text-av-gold transition-colors"><Instagram className="h-5 w-5" /></a>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, Star } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { useProducts } from "@/hooks/useProducts";
 import { formatNZD } from "@/lib/brand";
@@ -103,7 +103,7 @@ export default function Stack() {
                   </div>
                   <div className="mt-4">
                     <h3 className="font-display text-lg font-bold text-av-alloy">{p.name}</h3>
-                    <p className="text-xs text-av-alloy/60">{p.tagline}</p>
+                    <p className="text-xs text-av-alloy/80">{p.tagline}</p>
                     <p className="mt-1 text-xs uppercase tracking-[0.2em] text-av-gold/80">
                       {isPacked ? "Packed" : "Tap to pack"}
                     </p>
@@ -118,12 +118,24 @@ export default function Stack() {
               <p className="text-[11px] uppercase tracking-[0.25em] text-av-alloy/50">Complete Monthly Performance Stack</p>
               <p className="font-display text-4xl font-bold text-av-gold mt-1">{formatNZD(stackPrice)}<span className="text-base text-av-alloy/50 font-body font-normal"> / month</span></p>
             </div>
-            <button
-              onClick={subscribe}
-              className="inline-flex items-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition"
-            >
-              Subscribe To The Stack <ArrowRight className="h-4 w-4" />
-            </button>
+            <div className="flex flex-col items-center md:items-end gap-3">
+              {/* Trust signal placed right at the decision point, not
+                  buried below the fold with the single review carousel. */}
+              <div className="flex items-center gap-1.5 text-[11px] text-av-alloy/80">
+                <div className="flex text-av-gold">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-av-gold text-av-gold" />
+                  ))}
+                </div>
+                <span>4.9 rating from 300+ athletes</span>
+              </div>
+              <button
+                onClick={subscribe}
+                className="inline-flex items-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition"
+              >
+                Subscribe To The Stack <ArrowRight className="h-4 w-4" />
+              </button>
+            </div>
           </div>
         </div>
 

@@ -26,18 +26,27 @@ export default function Newsletter() {
           <Check className="h-5 w-5" /> You're subscribed — check your inbox.
         </div>
       ) : (
-        <form onSubmit={submit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            className="flex-1 bg-transparent border border-av-teal rounded-full px-5 py-3 text-av-alloy placeholder:text-av-alloy/40 focus:border-av-gold outline-none transition"
-          />
+        <form onSubmit={submit} className="flex flex-col sm:flex-row sm:items-end gap-3 max-w-md mx-auto">
+          <div className="flex-1 text-left">
+            <label
+              htmlFor="newsletter-email"
+              className="block text-[11px] uppercase tracking-[0.2em] text-av-alloy/60 mb-2"
+            >
+              Your email address
+            </label>
+            <input
+              id="newsletter-email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+              className="w-full bg-transparent border border-av-teal rounded-full px-5 py-3 text-av-alloy placeholder:text-av-alloy/40 focus:border-av-gold outline-none transition"
+            />
+          </div>
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-2 bg-av-gold text-av-deep px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition"
+            className="inline-flex items-center justify-center gap-2 bg-av-gold text-av-deep px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition shrink-0"
           >
             Subscribe <ArrowRight className="h-4 w-4" />
           </button>

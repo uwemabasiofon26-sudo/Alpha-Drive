@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Plus } from "lucide-react";
+import { ArrowUpRight, Plus, Star } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { useProducts } from "@/hooks/useProducts";
 import { formatNZD } from "@/lib/brand";
@@ -8,6 +8,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxText from "@/components/ParallaxText";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import ReviewCarousel from "@/components/ReviewCarousel";
+import ApparelMarquee from "@/components/ApparelMarquee";
+import { cn } from "@/lib/utils";
 
 const WHY = [
   { t: "Purpose-built performance products", d: "Engineered around real training demands — not generic wellness trends." },
@@ -17,13 +19,28 @@ const WHY = [
   { t: "Built for consistency", d: "Designed to support long-term progress, not a single hype cycle." },
 ];
 
+function Rating({ value = 4.9, count = 128, className }) {
+  return (
+    <div className={cn("flex items-center gap-1.5 text-[11px] text-av-alloy/80", className)}>
+      <div className="flex text-av-gold">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Star key={i} className="h-3 w-3 fill-av-gold text-av-gold" />
+        ))}
+      </div>
+      <span>{value} ({count})</span>
+    </div>
+  );
+}
+
 export default function Home() {
   const { data: products } = useProducts();
   const all = products || [];
   const supplements = all.filter((p) => p.category === "supplement");
   const apparel = all.filter((p) => p.category === "apparel");
   const featured = supplements.slice(0, 4);
-  const slideshowImages = supplements.map((p) => p.image).filter(Boolean);
+  // Hero slideshow: every product — supplements AND apparel — shown very
+  // faint in the background, not just the supplement range.
+  const heroImages = all.map((p) => p.image).filter(Boolean);
   const stack = all.find((p) => p.category === "stack");
   const stackPrice = stack?.subscription_price || 259.99;
 
@@ -31,11 +48,13 @@ export default function Home() {
     <div className="bg-av-deep">
       {/* HERO */}
       <section className="relative min-h-[100svh] flex items-end overflow-hidden grain">
-        <div className="absolute inset-0">
-          {slideshowImages.length > 0 && <HeroSlideshow images={slideshowImages} />}
+        {/* Full product range (supplements + apparel), faint in the background */}
+        <div className="absolute inset-0 opacity-40">
+          {heroImages.length > 0 && <HeroSlideshow images={heroImages} />}
         </div>
-
-        {/* hero visual */}
+        {/* Extra dark scrim so foreground text always stays fully legible
+            regardless of which product slide is behind it */}
+        <div className="absolute inset-0 bg-av-deep/50 pointer-events-none" />
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -61,9 +80,9 @@ export default function Home() {
       </section>
 
       {/* RANGE */}
-      <section className="relative py-16 md:py-40">
+      <section className="relative py-14 md:py-24">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
+          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-10">
             <div>
               <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Our Performance Range</p>
               <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy max-w-2xl">
@@ -85,8 +104,9 @@ export default function Home() {
                 </Link>
                 <div className="mt-3 md:mt-4">
                   <h3 className="font-display text-base md:text-xl font-bold text-av-alloy">{p.name}</h3>
-                  <p className="text-xs md:text-sm text-av-alloy/60">{p.tagline}</p>
+                  <p className="text-xs md:text-sm text-av-alloy/80">{p.tagline}</p>
                   <p className="mt-2 text-av-gold font-semibold text-sm md:text-base">{formatNZD(p.price)}</p>
+                  <Rating className="mt-1" />
                 </div>
               </ScrollReveal>
             ))}
@@ -96,32 +116,20 @@ export default function Home() {
 
       {/* APPAREL */}
       {apparel.length > 0 && (
-        <section className="relative py-16 md:py-40 border-y border-av-teal/30 overflow-hidden">
-          <div className="mx-auto max-w-[1400px] px-5 md:px-10 mb-10 md:mb-14">
+        <section className="relative py-14 md:py-24 border-y border-av-teal/30 overflow-hidden">
+          <div className="mx-auto max-w-[1400px] px-5 md:px-10 mb-8 md:mb-10">
             <ScrollReveal>
               <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Athletic Apparel</p>
               <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy">
-                Wear the valour.
+                Performance Apparel
               </h2>
             </ScrollReveal>
           </div>
 
-          {/* Desktop looping carousel */}
+          {/* Desktop looping showcase — pauses on request, and by default
+              when the OS-level "reduce motion" preference is on */}
           <div className="hidden lg:block">
-            <div className="flex gap-6 w-max animate-marquee hover:[animation-play-state:paused]">
-              {[...apparel, ...apparel, ...apparel, ...apparel].map((p, i) => (
-                <Link key={i} to={`/product/${p.slug}`} className="group block w-72 shrink-0">
-                  <div className="frame-corner aspect-[4/5] overflow-hidden bg-av-teal/20">
-                    <Image src={p.image} alt={p.name} fittingType="fill" className="h-full w-full transition-transform duration-700 group-hover:scale-105" />
-                  </div>
-                  <div className="mt-4">
-                    <h3 className="font-display text-lg font-bold text-av-alloy">{p.name}</h3>
-                    <p className="text-sm text-av-alloy/60">{p.tagline}</p>
-                    <p className="mt-2 text-av-gold font-semibold">{formatNZD(p.price)}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <ApparelMarquee items={apparel} />
           </div>
 
           {/* Mobile grid */}
@@ -133,7 +141,7 @@ export default function Home() {
                 </div>
                 <div className="mt-3">
                   <h3 className="font-display text-base font-bold text-av-alloy">{p.name}</h3>
-                  <p className="text-xs text-av-alloy/60">{p.tagline}</p>
+                  <p className="text-xs text-av-alloy/80">{p.tagline}</p>
                   <p className="mt-1 text-av-gold font-semibold text-sm">{formatNZD(p.price)}</p>
                 </div>
               </Link>
@@ -143,7 +151,7 @@ export default function Home() {
       )}
 
       {/* STACK */}
-      <section className="relative py-16 md:py-40 overflow-hidden">
+      <section className="relative py-14 md:py-24 overflow-hidden">
         <ParallaxText className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
           <span className="font-display text-[20vw] font-black tracking-tighter text-av-teal/25">STACK</span>
         </ParallaxText>
@@ -161,6 +169,7 @@ export default function Home() {
               <span className="text-av-alloy/50 line-through">{formatNZD(299.96)}</span>
               <span className="text-xs uppercase tracking-[0.2em] text-emerald-400 font-semibold">Save $40</span>
             </div>
+            <Rating value={4.9} count={312} className="mt-4" />
             <Link to="/stack" className="mt-6 md:mt-8 inline-flex items-center gap-2 bg-av-gold text-av-deep px-6 md:px-7 py-3 md:py-3.5 rounded-full text-[11px] md:text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
               Subscribe To The Stack <ArrowUpRight className="h-4 w-4" />
             </Link>
@@ -176,9 +185,9 @@ export default function Home() {
       </section>
 
       {/* WHY */}
-      <section className="py-16 md:py-40">
+      <section className="py-14 md:py-24">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <ScrollReveal className="mb-10 md:mb-14">
+          <ScrollReveal className="mb-8 md:mb-10">
             <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Why Alpha Valour</p>
             <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy max-w-3xl">
               No filler. No noise. Just performance.
@@ -205,9 +214,9 @@ export default function Home() {
       </section>
 
       {/* REVIEWS */}
-      <section className="py-16 md:py-40 border-y border-av-teal/30">
+      <section className="py-14 md:py-24 border-y border-av-teal/30">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <ScrollReveal className="text-center mb-10 md:mb-14">
+          <ScrollReveal className="text-center mb-8 md:mb-10">
             <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Trusted By Athletes</p>
             <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy">What they say</h2>
           </ScrollReveal>
@@ -216,7 +225,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-40 text-center">
+      <section className="py-14 md:py-24 text-center">
         <ScrollReveal className="mx-auto max-w-[1400px] px-5 md:px-10">
           <h2 className="font-display text-3xl md:text-6xl font-bold text-av-alloy">Ready to elevate?</h2>
           <p className="mt-4 text-av-alloy/60 max-w-xl mx-auto text-sm md:text-base">

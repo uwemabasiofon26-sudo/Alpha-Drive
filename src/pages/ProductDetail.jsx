@@ -77,8 +77,16 @@ export default function ProductDetail() {
               <Image src={product.image} alt={product.name} fittingType="fill" className="h-full w-full" />
             </motion.div>
             {product.supplement_facts_image && (
+              // Plain <img>, not the cropping <Image> component: this is a
+              // pre-designed, text-heavy facts graphic that must display in
+              // full and uncropped, at its own natural aspect ratio.
               <ScrollReveal delay={0.1} className="mt-6 frame-corner overflow-hidden bg-av-teal/20">
-                <Image src={product.supplement_facts_image} alt={`${product.name} supplement facts`} fittingType="fill" className="w-full" />
+                <img
+                  src={product.supplement_facts_image}
+                  alt={`${product.name} supplement facts`}
+                  className="w-full h-auto block"
+                  loading="lazy"
+                />
               </ScrollReveal>
             )}
           </div>
@@ -184,7 +192,12 @@ export default function ProductDetail() {
             </div>
 
             {/* INGREDIENTS / FORMULA */}
-            {product.ingredients?.length > 0 && (
+            {/* When a designed supplement-facts graphic exists (shown above,
+                next to the product photo), it already presents the formula
+                in the brand's own style — the plain text list here would
+                just duplicate it, so it only renders as a fallback when no
+                graphic was supplied for this product. */}
+            {product.ingredients?.length > 0 && !product.supplement_facts_image && (
               <div>
                 <h2 className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-4">The Formula</h2>
                 <div className="border border-av-teal/40">
