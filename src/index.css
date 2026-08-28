@@ -39,11 +39,17 @@
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    /* Belt-and-braces: never allow a horizontal scrollbar to appear, so the
+       page always fits the viewport at 100% zoom regardless of any single
+       element's width. */
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground font-body antialiased;
     background-color: #0A2426;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   ::selection {

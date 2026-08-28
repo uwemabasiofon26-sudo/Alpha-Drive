@@ -4,12 +4,11 @@ import { ArrowUpRight, Plus, Star } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { useProducts } from "@/hooks/useProducts";
 import { formatNZD } from "@/lib/brand";
+import { cn } from "@/lib/utils";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxText from "@/components/ParallaxText";
-import HeroSlideshow from "@/components/HeroSlideshow";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import ApparelMarquee from "@/components/ApparelMarquee";
-import { cn } from "@/lib/utils";
 
 const WHY = [
   { t: "Purpose-built performance products", d: "Engineered around real training demands — not generic wellness trends." },
@@ -38,28 +37,19 @@ export default function Home() {
   const supplements = all.filter((p) => p.category === "supplement");
   const apparel = all.filter((p) => p.category === "apparel");
   const featured = supplements.slice(0, 4);
-  // Hero slideshow: every product — supplements AND apparel — shown very
-  // faint in the background, not just the supplement range.
-  const heroImages = all.map((p) => p.image).filter(Boolean);
   const stack = all.find((p) => p.category === "stack");
   const stackPrice = stack?.subscription_price || 259.99;
 
   return (
     <div className="bg-av-deep">
-      {/* HERO */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden grain">
-        {/* Full product range (supplements + apparel), faint in the background */}
-        <div className="absolute inset-0 opacity-40">
-          {heroImages.length > 0 && <HeroSlideshow images={heroImages} />}
-        </div>
-        {/* Extra dark scrim so foreground text always stays fully legible
-            regardless of which product slide is behind it */}
-        <div className="absolute inset-0 bg-av-deep/50 pointer-events-none" />
+      {/* HERO — static, no auto-playing background media */}
+      <section className="relative min-h-[90svh] flex items-end overflow-hidden grain">
+        <div className="absolute inset-0 bg-gradient-to-b from-av-teal/30 via-av-deep to-av-deep" />
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 1 }}
+          transition={{ delay: 0.3, duration: 0.9 }}
           className="relative z-20 w-full px-5 md:px-10 pb-12 md:pb-16"
         >
           <div className="mx-auto max-w-[1400px] text-center">
@@ -80,9 +70,9 @@ export default function Home() {
       </section>
 
       {/* RANGE */}
-      <section className="relative py-14 md:py-24">
+      <section className="relative py-10 md:py-16">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-10">
+          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-6 md:mb-8">
             <div>
               <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Our Performance Range</p>
               <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy max-w-2xl">
@@ -116,8 +106,8 @@ export default function Home() {
 
       {/* APPAREL */}
       {apparel.length > 0 && (
-        <section className="relative py-14 md:py-24 border-y border-av-teal/30 overflow-hidden">
-          <div className="mx-auto max-w-[1400px] px-5 md:px-10 mb-8 md:mb-10">
+        <section className="relative py-10 md:py-16 border-y border-av-teal/30 overflow-hidden">
+          <div className="mx-auto max-w-[1400px] px-5 md:px-10 mb-6 md:mb-8">
             <ScrollReveal>
               <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Athletic Apparel</p>
               <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy">
@@ -126,13 +116,10 @@ export default function Home() {
             </ScrollReveal>
           </div>
 
-          {/* Desktop looping showcase — pauses on request, and by default
-              when the OS-level "reduce motion" preference is on */}
           <div className="hidden lg:block">
             <ApparelMarquee items={apparel} />
           </div>
 
-          {/* Mobile grid */}
           <div className="lg:hidden px-5 grid grid-cols-2 gap-4">
             {apparel.map((p) => (
               <Link key={p.id} to={`/product/${p.slug}`} className="group block">
@@ -151,7 +138,7 @@ export default function Home() {
       )}
 
       {/* STACK */}
-      <section className="relative py-14 md:py-24 overflow-hidden">
+      <section className="relative py-10 md:py-16 overflow-hidden">
         <ParallaxText className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
           <span className="font-display text-[20vw] font-black tracking-tighter text-av-teal/25">STACK</span>
         </ParallaxText>
@@ -159,10 +146,10 @@ export default function Home() {
           <ScrollReveal>
             <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">The Alpha Valour Stack</p>
             <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy">
-              One system. Four products. Total performance.
+              One system. Five products. Total performance.
             </h2>
             <p className="mt-5 md:mt-6 text-av-alloy/70 leading-relaxed max-w-lg text-sm md:text-base">
-              HAVOC, DRIVE, GROW and FUEL together as a complete monthly performance system — supporting preparation, training, nutrition and recovery.
+              HAVOC, DRIVE, CREATINE, GROW and FUEL together as a complete monthly performance system — supporting preparation, training, nutrition and recovery.
             </p>
             <div className="mt-6 md:mt-8 flex items-baseline gap-4 flex-wrap">
               <span className="font-display text-4xl md:text-5xl font-bold text-av-gold">{formatNZD(stackPrice)}</span>
@@ -174,20 +161,16 @@ export default function Home() {
               Subscribe To The Stack <ArrowUpRight className="h-4 w-4" />
             </Link>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="grid grid-cols-2 gap-3 md:gap-4">
-            {featured.map((p) => (
-              <div key={p.id} className="frame-corner aspect-square overflow-hidden bg-av-teal/20">
-                <Image src={p.image} alt={p.name} fittingType="fill" className="h-full w-full" />
-              </div>
-            ))}
+          <ScrollReveal delay={0.1} className="frame-corner aspect-square overflow-hidden bg-av-teal/20">
+            {stack && <Image src={stack.image} alt={stack.name} fittingType="fill" className="h-full w-full" />}
           </ScrollReveal>
         </div>
       </section>
 
       {/* WHY */}
-      <section className="py-14 md:py-24">
+      <section className="py-10 md:py-16">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <ScrollReveal className="mb-8 md:mb-10">
+          <ScrollReveal className="mb-6 md:mb-8">
             <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Why Alpha Valour</p>
             <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy max-w-3xl">
               No filler. No noise. Just performance.
@@ -214,9 +197,9 @@ export default function Home() {
       </section>
 
       {/* REVIEWS */}
-      <section className="py-14 md:py-24 border-y border-av-teal/30">
+      <section className="py-10 md:py-16 border-y border-av-teal/30">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <ScrollReveal className="text-center mb-8 md:mb-10">
+          <ScrollReveal className="text-center mb-6 md:mb-8">
             <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Trusted By Athletes</p>
             <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy">What they say</h2>
           </ScrollReveal>
@@ -225,7 +208,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-14 md:py-24 text-center">
+      <section className="py-10 md:py-16 text-center">
         <ScrollReveal className="mx-auto max-w-[1400px] px-5 md:px-10">
           <h2 className="font-display text-3xl md:text-6xl font-bold text-av-alloy">Ready to elevate?</h2>
           <p className="mt-4 text-av-alloy/60 max-w-xl mx-auto text-sm md:text-base">

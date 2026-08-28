@@ -33,7 +33,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-av-teal/40 bg-av-deep mt-24">
       {/* Newsletter */}
-      <div className="border-b border-av-teal/30 py-16 md:py-20">
+      <div className="border-b border-av-teal/30 py-12 md:py-16">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <Newsletter />
         </div>

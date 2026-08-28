@@ -46,7 +46,7 @@ export default function Header() {
             <Logo />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden xl:flex items-center gap-5 xl:gap-6">
             {/* Home */}
             <NavLink to="/" label="Home" active={location.pathname === "/"} />
 
@@ -56,7 +56,7 @@ export default function Header() {
               onMouseEnter={() => setProductsOpen(true)}
               onMouseLeave={() => setProductsOpen(false)}
             >
-              <button className="group relative flex items-center gap-1 text-[11px] font-bold uppercase tracking-[0.2em] text-av-alloy/80 hover:text-av-alloy transition-colors">
+              <button className="group relative flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.15em] text-av-alloy/80 hover:text-av-alloy transition-colors">
                 Products
                 <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", productsOpen && "rotate-180")} />
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-av-gold transition-all duration-300 group-hover:w-full" />
@@ -106,7 +106,7 @@ export default function Header() {
             </Link>
             <button
               onClick={() => setOpen(true)}
-              className="lg:hidden z-50 text-av-alloy"
+              className="xl:hidden z-50 text-av-alloy"
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />
@@ -122,7 +122,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[60] bg-av-deep/97 backdrop-blur-2xl lg:hidden overflow-y-auto"
+            className="fixed inset-0 z-[60] bg-av-deep/97 backdrop-blur-2xl xl:hidden overflow-y-auto"
           >
             <div className="h-16 px-5 flex items-center justify-between">
               <Logo />
@@ -196,7 +196,7 @@ function NavLink({ to, label, active }) {
     <Link
       to={to}
       className={cn(
-        "group relative text-[11px] font-bold uppercase tracking-[0.2em] transition-colors",
+        "group relative text-[10px] font-bold uppercase tracking-[0.15em] transition-colors",
         active ? "text-av-gold" : "text-av-alloy/80 hover:text-av-alloy"
       )}
     >

@@ -59,7 +59,7 @@ export default function ProductDetail() {
   };
 
   return (
-    <div className="bg-av-deep pt-24 md:pt-28 pb-32">
+    <div className="bg-av-deep pt-24 md:pt-28 pb-12 md:pb-16">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <nav className="text-[11px] uppercase tracking-[0.2em] text-av-alloy/40 mb-8">
           <Link to="/shop" className="hover:text-av-gold">Shop</Link> / <span className="text-av-alloy/70">{product.name}</span>
