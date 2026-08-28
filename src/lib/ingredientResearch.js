@@ -56,6 +56,11 @@ export const INGREDIENT_RESEARCH = {
     note: "Rice is a low-fibre, rapidly digesting carbohydrate source. Carbohydrate availability before and after training supports glycogen resynthesis and training quality.",
     ref: "Burke et al., Int J Sport Nutr Exerc Metab. 2011.",
   },
+  "oyster extract": {
+    name: "Oyster Extract",
+    note: "Oyster extract is a natural source of zinc, a mineral involved in testosterone metabolism, immune function and cellular repair, and has traditionally been associated with male vitality and reproductive health.",
+    ref: "Fallah et al., Nutrients. 2018 (zinc and reproductive health review).",
+  },
 };
 
 // Vitamins / minerals shown as a grouped system line — matched loosely.

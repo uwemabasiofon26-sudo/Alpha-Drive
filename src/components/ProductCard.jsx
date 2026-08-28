@@ -62,11 +62,11 @@ export default function ProductCard({ product, index = 0 }) {
         </Link>
 
         {hasSub ? (
-          <div className="flex w-full rounded-full border border-av-teal overflow-hidden text-[9px] sm:text-[10px] uppercase tracking-[0.1em] font-bold">
+          <div className="flex w-full rounded-full border border-av-teal divide-x divide-av-teal/50 overflow-hidden text-[11px] sm:text-xs uppercase tracking-[0.08em] font-bold">
             <button
               onClick={() => setPurchaseType("one_time")}
               className={cn(
-                "flex-1 py-2.5 px-1.5 transition-colors",
+                "flex-1 py-3 px-1.5 transition-colors",
                 purchaseType === "one_time" ? "bg-av-teal text-av-gold" : "bg-av-teal/20 text-av-alloy/70"
               )}
             >
@@ -75,7 +75,7 @@ export default function ProductCard({ product, index = 0 }) {
             <button
               onClick={() => setPurchaseType("subscription")}
               className={cn(
-                "flex-1 py-2.5 px-1.5 bg-transparent transition-colors",
+                "flex-1 py-3 px-1.5 bg-transparent transition-colors",
                 purchaseType === "subscription" ? "text-av-gold" : "text-av-alloy/70"
               )}
             >
@@ -83,7 +83,7 @@ export default function ProductCard({ product, index = 0 }) {
             </button>
             <button
               onClick={handleAdd}
-              className="flex-1 py-2.5 px-1.5 bg-av-gold text-av-deep hover:brightness-110 transition"
+              className="flex-1 py-3 px-1.5 bg-av-gold text-av-deep hover:brightness-110 transition"
             >
               Add to Cart
             </button>

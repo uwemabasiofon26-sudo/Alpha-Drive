@@ -36,7 +36,7 @@ export default function Home() {
   const all = products || [];
   const supplements = all.filter((p) => p.category === "supplement");
   const apparel = all.filter((p) => p.category === "apparel");
-  const featured = supplements.slice(0, 4);
+  const featured = supplements;
   const stack = all.find((p) => p.category === "stack");
   const stackPrice = stack?.subscription_price || 259.99;
 
@@ -84,7 +84,7 @@ export default function Home() {
             </Link>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-10 md:gap-y-14">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-4 md:gap-x-6 gap-y-10 md:gap-y-14">
             {featured.map((p, i) => (
               <ScrollReveal key={p.id} delay={i * 0.08}>
                 <Link to={`/product/${p.slug}`} className="group block frame-corner relative overflow-hidden">
@@ -161,8 +161,18 @@ export default function Home() {
               Subscribe To The Stack <ArrowUpRight className="h-4 w-4" />
             </Link>
           </ScrollReveal>
-          <ScrollReveal delay={0.1} className="frame-corner aspect-square overflow-hidden bg-av-teal/20">
-            {stack && <Image src={stack.image} alt={stack.name} fittingType="fill" className="h-full w-full" />}
+          <ScrollReveal delay={0.1} className="frame-corner overflow-hidden bg-av-teal/20">
+            {/* Plain <img> at its natural aspect ratio — the stack graphic
+                is a designed collage, so forcing it into a fixed aspect box
+                (as the featured-product photos do) squashed/stretched it. */}
+            {stack && (
+              <img
+                src={stack.image}
+                alt={stack.name}
+                className="w-full h-auto block"
+                loading="lazy"
+              />
+            )}
           </ScrollReveal>
         </div>
       </section>
@@ -208,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-10 md:py-16 text-center">
+      <section className="pt-10 pb-6 md:pt-16 md:pb-8 text-center">
         <ScrollReveal className="mx-auto max-w-[1400px] px-5 md:px-10">
           <h2 className="font-display text-3xl md:text-6xl font-bold text-av-alloy">Ready to elevate?</h2>
           <p className="mt-4 text-av-alloy/60 max-w-xl mx-auto text-sm md:text-base">

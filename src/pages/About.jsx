@@ -74,7 +74,7 @@ export default function About() {
       <section className="mx-auto max-w-[1400px] px-5 md:px-10">
         <ScrollReveal>
           <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">About Alpha Valour</p>
-          <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
+          <h1 className="font-display text-4xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
             Performance, engineered with intent.
           </h1>
         </ScrollReveal>

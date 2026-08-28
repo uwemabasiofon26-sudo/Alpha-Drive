@@ -21,7 +21,7 @@ import tshirtWhite from "@/assets/products/tshirt-white.jpeg";
 //   price, subscription_price?,
 //   benefits?: string[], ingredients?: string[],
 //   servings?, size?, usage?,
-//   colors?: string[], sizes?: string[],
+//   colors?: string[], sizes?: string[], fit?: string,
 //   sort_order?,
 // }
 
@@ -144,6 +144,7 @@ export const PRODUCTS = [
     category: "supplement",
     image: alphaFuel,
     price: 39.99,
+    subscription_price: 33.99,
     benefits: [
       "Fast-digesting carbohydrate source",
       "Smooth, easy-mix texture",
@@ -165,7 +166,7 @@ export const PRODUCTS = [
     category: "apparel",
     image: tshirtBlack,
     price: 45.0,
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    fit: "One Size – Stretch Fit",
     sort_order: 6,
   },
   {
@@ -178,7 +179,7 @@ export const PRODUCTS = [
     category: "apparel",
     image: tshirtWhite,
     price: 45.0,
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    fit: "One Size – Stretch Fit",
     sort_order: 7,
   },
   {

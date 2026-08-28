@@ -43,7 +43,6 @@ export default function ProductDetail() {
   const related = (all || []).filter((p) => p.id !== product.id && p.category !== "stack").slice(0, 3);
 
   const handleAdd = () => {
-    if (isApparel && product.sizes?.length && !size) return;
     addItem({
       productId: product.id,
       name: product.name,
@@ -139,25 +138,6 @@ export default function ProductDetail() {
                     </div>
                   </div>
                 )}
-                {product.sizes?.length > 0 && (
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-av-alloy/50 mb-3">Size</p>
-                    <div className="flex flex-wrap gap-2">
-                      {product.sizes.map((s) => (
-                        <button
-                          key={s}
-                          onClick={() => setSize(s)}
-                          className={cn(
-                            "min-w-[3rem] px-3 py-2 rounded-full text-xs uppercase tracking-[0.15em] border transition",
-                            size === s ? "border-av-gold bg-av-gold text-av-deep" : "border-av-teal text-av-alloy/70 hover:border-av-gold"
-                          )}
-                        >
-                          {s}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             )}
 
@@ -189,15 +169,15 @@ export default function ProductDetail() {
               {product.servings && <Spec label="Servings" value={product.servings} />}
               {product.size && <Spec label="Size" value={product.size} />}
               {product.usage && <Spec label="Usage" value={product.usage} full />}
+              {product.fit && <Spec label="Fit" value={product.fit} full />}
             </div>
 
             {/* INGREDIENTS / FORMULA */}
-            {/* When a designed supplement-facts graphic exists (shown above,
-                next to the product photo), it already presents the formula
-                in the brand's own style — the plain text list here would
-                just duplicate it, so it only renders as a fallback when no
-                graphic was supplied for this product. */}
-            {product.ingredients?.length > 0 && !product.supplement_facts_image && (
+            {/* Always show the plain-text ingredient list alongside the
+                designed facts graphic above — the graphic is decorative and
+                its text isn't accessible to screen readers, and relying on
+                it alone made ingredients easy to miss. */}
+            {product.ingredients?.length > 0 && (
               <div>
                 <h2 className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-4">The Formula</h2>
                 <div className="border border-av-teal/40">
