@@ -74,7 +74,12 @@ export const VITAMIN_RESEARCH = {
 export function researchForIngredient(line) {
   const raw = String(line || "");
   // Split on em dash, en dash, or hyphen-with-spaces, take the name part.
-  const namePart = raw.split(/[—–-]/)[0].trim();
+  // Split on em dash or en dash only — NOT a plain hyphen, since several
+  // ingredient names contain their own internal hyphen (L-Citrulline,
+  // L-Tyrosine, Beta-Alanine). Splitting on a bare hyphen cut those names
+  // in half (e.g. "L-Tyrosine" → "L"), which then fuzzy-matched onto the
+  // wrong entry and made two different ingredients show the same card.
+  const namePart = raw.split(/[—–]/)[0].trim();
   if (!namePart) return null;
   const norm = namePart.toLowerCase().replace(/\s+/g, " ").trim();
 

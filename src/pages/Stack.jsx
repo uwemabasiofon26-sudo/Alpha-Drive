@@ -32,7 +32,7 @@ export default function Stack() {
     });
   };
 
-  const individualValue = 299.96;
+  const individualValue = 323.95;
   const stackPrice = stack?.subscription_price || 259.99;
   const savings = individualValue - stackPrice;
 
@@ -41,7 +41,7 @@ export default function Stack() {
       <section className="mx-auto max-w-[1400px] px-5 md:px-10">
         <ScrollReveal>
           <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">The Alpha Valour Stack</p>
-          <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
+          <h1 className="font-display text-4xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
             One pack. Three systems. Total daily performance.
           </h1>
           <p className="mt-6 text-lg text-av-alloy/70 max-w-2xl">

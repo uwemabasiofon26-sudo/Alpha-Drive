@@ -15,7 +15,7 @@ export default function PerformanceNutrition() {
       <section className="mx-auto max-w-[1400px] px-5 md:px-10 pb-16">
         <ScrollReveal>
           <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Alpha Valour Performance Nutrition</p>
-          <h1 className="font-display text-5xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
+          <h1 className="font-display text-4xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
             Fuel Your Strength. Elevate Your Performance.
           </h1>
           <p className="mt-6 text-lg text-av-alloy/70 max-w-2xl leading-relaxed">
@@ -25,7 +25,9 @@ export default function PerformanceNutrition() {
       </section>
 
       <section className="relative py-16 md:py-24 border-y border-av-teal/30 overflow-hidden">
-        <ParallaxText className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {/* Hidden on mobile — at 18vw this decorative watermark was
+            overflowing/clipping awkwardly on narrow screens. */}
+        <ParallaxText className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
           <span className="font-display text-[18vw] font-black tracking-tighter text-av-teal/20">PERFORMANCE</span>
         </ParallaxText>
         <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 space-y-20 md:space-y-28">

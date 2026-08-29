@@ -4,7 +4,7 @@
 
 import alphaHavoc from "@/assets/products/alpha-havoc.jpg";
 import alphaHavocFacts from "@/assets/products/alpha-havoc-facts.jpg";
-import alphaDrive from "@/assets/products/alpha-drive.jpeg";
+import alphaDrive from "@/assets/products/alpha-drive.jpg";
 import alphaDriveFacts from "@/assets/products/alpha-drive-facts.jpg";
 import alphaCreatine from "@/assets/products/alpha-creatine.jpg";
 import alphaGrow from "@/assets/products/alpha-grow.jpg";
@@ -43,11 +43,9 @@ export const PRODUCTS = [
       "Buffers muscular fatigue during high-intensity sets",
       "Clean, dosed stimulation without the crash",
     ],
-    // Dosages below follow the detailed supplement-facts panel (the
-    // authoritative reference), which differs slightly from the older
-    // front-of-bottle copy.
+    // Dosages below follow the confirmed front-of-bottle values.
     ingredients: [
-      "L-Citrulline — 3500mg",
+      "L-Citrulline — 6000mg",
       "Beta-Alanine — 3200mg",
       "Taurine — 2000mg",
       "L-Tyrosine — 1000mg",
@@ -68,8 +66,8 @@ export const PRODUCTS = [
     category: "supplement",
     image: alphaDrive,
     supplement_facts_image: alphaDriveFacts,
-    price: 49.99,
-    subscription_price: 42.99,
+    price: 79,
+    subscription_price: 67.99,
     benefits: [
       "Complete multivitamin and mineral foundation",
       "Oyster extract, maca and ginseng for vitality",
@@ -81,8 +79,8 @@ export const PRODUCTS = [
       "Black Maca Extract (10:1) — 1000mg",
       "Panax Ginseng Extract (20% Ginsenosides) — 300mg",
     ],
-    servings: "15 servings",
-    size: "6 capsule daily pack",
+    servings: "20 servings",
+    size: "6 capsule daily pack · 120 capsules",
     usage: "Take all 6 capsules together once daily, with food.",
     sort_order: 2,
   },

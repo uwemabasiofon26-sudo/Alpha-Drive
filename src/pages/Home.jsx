@@ -39,6 +39,11 @@ export default function Home() {
   const featured = supplements;
   const stack = all.find((p) => p.category === "stack");
   const stackPrice = stack?.subscription_price || 259.99;
+  // Kept in one place (also mirrored in Stack.jsx) rather than hardcoding
+  // the line-through price and "Save $X" text separately, so they can't
+  // drift out of sync again.
+  const stackIndividualValue = 323.95;
+  const stackSavings = stackIndividualValue - stackPrice;
 
   return (
     <div className="bg-av-deep">
@@ -84,7 +89,7 @@ export default function Home() {
             </Link>
           </ScrollReveal>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-4 md:gap-x-6 gap-y-10 md:gap-y-14">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 md:gap-x-6 gap-y-10 md:gap-y-14">
             {featured.map((p, i) => (
               <ScrollReveal key={p.id} delay={i * 0.08}>
                 <Link to={`/product/${p.slug}`} className="group block frame-corner relative overflow-hidden">
@@ -100,6 +105,18 @@ export default function Home() {
                 </div>
               </ScrollReveal>
             ))}
+            {/* Same card footprint as a product tile, sitting right beside
+                the last product (Fuel) rather than buried elsewhere. */}
+            <ScrollReveal delay={featured.length * 0.08}>
+              <Link
+                to="/shop"
+                className="group flex flex-col items-center justify-center gap-3 text-center aspect-[4/5] frame-corner border border-av-teal/50 bg-av-teal/10 hover:bg-av-teal/20 transition-colors"
+              >
+                <ArrowUpRight className="h-7 w-7 text-av-gold transition group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <span className="font-display text-base md:text-lg font-bold text-av-alloy px-4">View Full Range</span>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-av-gold">Shop Now</span>
+              </Link>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -153,8 +170,8 @@ export default function Home() {
             </p>
             <div className="mt-6 md:mt-8 flex items-baseline gap-4 flex-wrap">
               <span className="font-display text-4xl md:text-5xl font-bold text-av-gold">{formatNZD(stackPrice)}</span>
-              <span className="text-av-alloy/50 line-through">{formatNZD(299.96)}</span>
-              <span className="text-xs uppercase tracking-[0.2em] text-emerald-400 font-semibold">Save $40</span>
+              <span className="text-av-alloy/50 line-through">{formatNZD(stackIndividualValue)}</span>
+              <span className="text-xs uppercase tracking-[0.2em] text-emerald-400 font-semibold">Save {formatNZD(stackSavings)}</span>
             </div>
             <Rating value={4.9} count={312} className="mt-4" />
             <Link to="/stack" className="mt-6 md:mt-8 inline-flex items-center gap-2 bg-av-gold text-av-deep px-6 md:px-7 py-3 md:py-3.5 rounded-full text-[11px] md:text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
