@@ -70,10 +70,10 @@ export default function Home() {
       {/* HERO — muted, auto-looping background video. Falls back to the
           poster frame (a still from the video) while it loads, and pauses
           automatically if the visitor's device has "reduce motion" on. */}
-      <section className="relative min-h-[90svh] flex items-end overflow-hidden grain">
+      <section className="relative min-h-[100svh] md:min-h-[90svh] flex items-end overflow-hidden grain">
         <video
           ref={heroVideoRef}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-top md:object-center"
           autoPlay
           muted
           loop
