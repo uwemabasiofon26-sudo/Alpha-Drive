@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { ArrowUpRight, Plus, Star } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { useProducts } from "@/hooks/useProducts";
@@ -9,6 +10,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxText from "@/components/ParallaxText";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import ApparelMarquee from "@/components/ApparelMarquee";
+import heroVideoMp4 from "@/assets/video/hero.mp4";
+import heroVideoWebm from "@/assets/video/hero.webm";
+import heroPoster from "@/assets/video/hero-poster.jpg";
 
 const WHY = [
   { t: "Purpose-built performance products", d: "Engineered around real training demands — not generic wellness trends." },
@@ -32,6 +36,22 @@ function Rating({ value = 4.9, count = 128, className }) {
 }
 
 export default function Home() {
+  const heroVideoRef = useRef(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const applyMotionPref = (reduce) => {
+      const el = heroVideoRef.current;
+      if (!el) return;
+      if (reduce) el.pause();
+      else el.play().catch(() => {}); // autoplay can be rejected before user interaction on some browsers
+    };
+    applyMotionPref(mq.matches);
+    const onChange = (e) => applyMotionPref(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   const { data: products } = useProducts();
   const all = products || [];
   const supplements = all.filter((p) => p.category === "supplement");
@@ -47,9 +67,26 @@ export default function Home() {
 
   return (
     <div className="bg-av-deep">
-      {/* HERO — static, no auto-playing background media */}
+      {/* HERO — muted, auto-looping background video. Falls back to the
+          poster frame (a still from the video) while it loads, and pauses
+          automatically if the visitor's device has "reduce motion" on. */}
       <section className="relative min-h-[90svh] flex items-end overflow-hidden grain">
-        <div className="absolute inset-0 bg-gradient-to-b from-av-teal/30 via-av-deep to-av-deep" />
+        <video
+          ref={heroVideoRef}
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroPoster}
+          aria-hidden="true"
+        >
+          <source src={heroVideoWebm} type="video/webm" />
+          <source src={heroVideoMp4} type="video/mp4" />
+        </video>
+        {/* Dark scrim over the video so the headline stays legible
+            regardless of which frame is showing underneath it. */}
+        <div className="absolute inset-0 bg-gradient-to-b from-av-deep/50 via-av-deep/45 to-av-deep" />
 
         <motion.div
           initial={{ opacity: 0 }}
