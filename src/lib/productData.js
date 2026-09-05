@@ -29,7 +29,7 @@ import tshirtWhite from "@/assets/products/tshirt-white.jpeg";
 export const PRODUCTS = [
   {
     id: "havoc",
-    inStock: true,
+    inStock: false,
     slug: "havoc",
     name: "HAVOC",
     tagline: "Extreme Pre-Workout",

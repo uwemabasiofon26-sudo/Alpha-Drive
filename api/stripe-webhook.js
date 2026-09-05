@@ -21,7 +21,8 @@ export const config = {
   api: { bodyParser: false },
 };
 
-const COMPANY_EMAIL = "support@alphavalour.co.nz";
+const FROM_EMAIL = process.env.ORDER_NOTIFICATION_FROM || "Alpha Valour <onboarding@resend.dev>";
+const COMPANY_EMAIL = process.env.ORDER_NOTIFICATION_EMAIL || "support@alphavalour.co.nz";
 
 function readRawBody(req) {
   return new Promise((resolve, reject) => {
@@ -76,21 +77,27 @@ export default async function handler(req, res) {
 
         // Customer confirmation
         if (customerEmail) {
-          await resend.emails.send({
-            from: "Alpha Valour <orders@alphavalour.co.nz>",
+          const customerResult = await resend.emails.send({
+            from: FROM_EMAIL,
             to: customerEmail,
             subject: "Your Alpha Valour order is confirmed",
             html: customerOrderEmail({ customerName, items, total, orderId: session.id }),
           });
+          if (customerResult.error) {
+            console.error("Resend customer-order email error:", customerResult.error);
+          }
         }
 
         // Company notification
-        await resend.emails.send({
-          from: "Alpha Valour <orders@alphavalour.co.nz>",
+        const companyResult = await resend.emails.send({
+          from: FROM_EMAIL,
           to: COMPANY_EMAIL,
           subject: `New order — ${total ? `$${total.toFixed(2)} NZD` : ""}`,
           html: companyOrderNotificationEmail({ customerName, customerEmail, items, total, orderId: session.id }),
         });
+        if (companyResult.error) {
+          console.error("Resend company-order email error:", companyResult.error);
+        }
       } else {
         console.error("RESEND_API_KEY not set — order emails were not sent.");
       }

@@ -45,7 +45,10 @@ export default async function handler(req, res) {
       quantity: item.quantity || 1,
     }));
 
-    const origin = req.headers.origin || `https://${req.headers.host}`;
+    // SITE_URL is explicit and reliable; header-based origin is kept only
+    // as a fallback so preview/staging deployments still work without
+    // needing SITE_URL set for every branch.
+    const origin = process.env.SITE_URL || req.headers.origin || `https://${req.headers.host}`;
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
