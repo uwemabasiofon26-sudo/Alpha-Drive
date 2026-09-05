@@ -1,15 +1,32 @@
 import { useState } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Loader2 } from "lucide-react";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    if (!email) return;
-    setDone(true);
-    setEmail("");
+    if (!email || loading) return;
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      setDone(true);
+      setEmail("");
+    } catch (err) {
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -46,12 +63,14 @@ export default function Newsletter() {
           </div>
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-2 bg-av-gold text-av-deep px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition shrink-0"
+            disabled={loading}
+            className="inline-flex items-center justify-center gap-2 bg-av-gold text-av-deep px-6 py-3 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition shrink-0 disabled:opacity-60"
           >
-            Subscribe <ArrowRight className="h-4 w-4" />
+            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Subscribe <ArrowRight className="h-4 w-4" /></>}
           </button>
         </form>
       )}
+      {error && <p className="mt-3 text-sm text-destructive">{error}</p>}
     </div>
   );
 }

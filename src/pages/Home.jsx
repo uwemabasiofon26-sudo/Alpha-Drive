@@ -67,32 +67,40 @@ export default function Home() {
 
   return (
     <div className="bg-av-deep">
-      {/* HERO — muted, auto-looping background video. Falls back to the
-          poster frame (a still from the video) while it loads, and pauses
-          automatically if the visitor's device has "reduce motion" on. */}
-      <section className="relative min-h-[100svh] md:min-h-[90svh] flex items-end overflow-hidden grain">
-        <video
-          ref={heroVideoRef}
-          className="absolute inset-0 h-full w-full object-cover object-top md:object-center"
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={heroPoster}
-          aria-hidden="true"
-        >
-          <source src={heroVideoWebm} type="video/webm" />
-          <source src={heroVideoMp4} type="video/mp4" />
-        </video>
-        {/* Dark scrim over the video so the headline stays legible
-            regardless of which frame is showing underneath it. */}
-        <div className="absolute inset-0 bg-gradient-to-b from-av-deep/50 via-av-deep/45 to-av-deep" />
+      {/* HERO — video banner as its own block (guaranteed to start right at
+          the top, under the transparent nav, since it's normal-flow content
+          with a definite height rather than an absolutely-positioned layer
+          inside a min-height flex parent). Text sits in its own block right
+          after the video ends, not overlaid on top of it. */}
+      <section className="relative">
+        {/* Plain vh, not svh — svh silently collapses to zero height on
+            mobile browsers that don't support it (rather than erroring),
+            which is what caused the black gap at the top on some phones.
+            bg-av-deep is a safety net so a failed/slow-loading video shows
+            the brand background instead of pure black either way. */}
+        <div className="relative h-[55vh] md:h-[75vh] w-full overflow-hidden grain bg-av-deep">
+          <video
+            ref={heroVideoRef}
+            className="absolute inset-0 h-full w-full object-cover object-top md:object-center"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroPoster}
+            aria-hidden="true"
+          >
+            <source src={heroVideoWebm} type="video/webm" />
+            <source src={heroVideoMp4} type="video/mp4" />
+          </video>
+          {/* Soft fade into the text block below, so the cut isn't abrupt */}
+          <div className="absolute inset-x-0 bottom-0 h-24 md:h-32 bg-gradient-to-b from-transparent to-av-deep" />
+        </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.9 }}
-          className="relative z-20 w-full px-5 md:px-10 pb-12 md:pb-16"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="w-full px-5 md:px-10 py-10 md:py-14"
         >
           <div className="mx-auto max-w-[1400px] text-center">
             <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight text-av-alloy text-balance">
@@ -138,7 +146,11 @@ export default function Home() {
                   <h3 className="font-display text-base md:text-xl font-bold text-av-alloy">{p.name}</h3>
                   <p className="text-xs md:text-sm text-av-alloy/80">{p.tagline}</p>
                   <p className="mt-2 text-av-gold font-semibold text-sm md:text-base">{formatNZD(p.price)}</p>
-                  <Rating className="mt-1" />
+                  {p.inStock === false ? (
+                    <p className="mt-1 text-[11px] uppercase tracking-[0.15em] text-av-alloy/50">Out of Stock</p>
+                  ) : (
+                    <Rating className="mt-1" />
+                  )}
                 </div>
               </ScrollReveal>
             ))}

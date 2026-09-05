@@ -129,12 +129,18 @@ export default function Stack() {
                 </div>
                 <span>4.9 rating from 300+ athletes</span>
               </div>
-              <button
-                onClick={subscribe}
-                className="inline-flex items-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition"
-              >
-                Subscribe To The Stack <ArrowRight className="h-4 w-4" />
-              </button>
+              {stack?.inStock === false ? (
+                <div className="inline-flex items-center gap-2 rounded-full border border-av-teal/60 bg-av-teal/10 px-8 py-4 text-sm uppercase tracking-[0.2em] font-bold text-av-alloy/60">
+                  Out of Stock
+                </div>
+              ) : (
+                <button
+                  onClick={subscribe}
+                  className="inline-flex items-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition"
+                >
+                  Subscribe To The Stack <ArrowRight className="h-4 w-4" />
+                </button>
+              )}
             </div>
           </div>
         </div>

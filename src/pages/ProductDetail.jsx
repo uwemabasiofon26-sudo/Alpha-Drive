@@ -142,12 +142,18 @@ export default function ProductDetail() {
             )}
 
             {/* ADD */}
-            <button
-              onClick={handleAdd}
-              className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition"
-            >
-              {added ? <><Check className="h-5 w-5" /> Added</> : <>Add to Cart · {formatNZD(price)}</>}
-            </button>
+            {product.inStock === false ? (
+              <div className="w-full md:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-av-teal/60 bg-av-teal/10 px-8 py-4 text-sm uppercase tracking-[0.2em] font-bold text-av-alloy/60">
+                Out of Stock
+              </div>
+            ) : (
+              <button
+                onClick={handleAdd}
+                className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition"
+              >
+                {added ? <><Check className="h-5 w-5" /> Added</> : <>Add to Cart · {formatNZD(price)}</>}
+              </button>
+            )}
 
             {/* KEY BENEFITS */}
             {product.benefits?.length > 0 && (

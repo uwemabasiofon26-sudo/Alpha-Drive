@@ -13,7 +13,7 @@ export default function FuelBar({ product, purchaseType, price, size, color }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (!product) return null;
+  if (!product || product.inStock === false) return null;
 
   const add = () =>
     addItem({

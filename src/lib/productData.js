@@ -18,6 +18,7 @@ import tshirtWhite from "@/assets/products/tshirt-white.jpeg";
 //   id, slug, name, tagline, description,
 //   category: "supplement" | "apparel" | "stack",
 //   image, supplement_facts_image?,
+//   inStock: boolean,
 //   price, subscription_price?,
 //   benefits?: string[], ingredients?: string[],
 //   servings?, size?, usage?,
@@ -28,6 +29,7 @@ import tshirtWhite from "@/assets/products/tshirt-white.jpeg";
 export const PRODUCTS = [
   {
     id: "havoc",
+    inStock: false,
     slug: "havoc",
     name: "HAVOC",
     tagline: "Extreme Pre-Workout",
@@ -58,6 +60,7 @@ export const PRODUCTS = [
   },
   {
     id: "drive",
+    inStock: false,
     slug: "drive",
     name: "DRIVE",
     tagline: "Premium Daily Performance Multi",
@@ -86,6 +89,7 @@ export const PRODUCTS = [
   },
   {
     id: "creatine",
+    inStock: false,
     slug: "creatine",
     name: "CREATINE",
     tagline: "Creatine + Electrolytes",
@@ -112,6 +116,7 @@ export const PRODUCTS = [
   },
   {
     id: "grow",
+    inStock: false,
     slug: "grow",
     name: "GROW",
     tagline: "Premium Protein",
@@ -134,6 +139,7 @@ export const PRODUCTS = [
   },
   {
     id: "fuel",
+    inStock: false,
     slug: "fuel",
     name: "FUEL",
     tagline: "Instant Cream of Rice",
@@ -156,6 +162,7 @@ export const PRODUCTS = [
   },
   {
     id: "performance-tee-black",
+    inStock: false,
     slug: "performance-tee-black",
     name: "Performance Tee — Black",
     tagline: "Athletic Apparel",
@@ -169,6 +176,7 @@ export const PRODUCTS = [
   },
   {
     id: "performance-tee-white",
+    inStock: false,
     slug: "performance-tee-white",
     name: "Performance Tee — White",
     tagline: "Athletic Apparel",
@@ -182,6 +190,7 @@ export const PRODUCTS = [
   },
   {
     id: "complete-stack",
+    inStock: false,
     slug: "complete-stack",
     name: "The Complete Stack",
     tagline: "Monthly Performance System",

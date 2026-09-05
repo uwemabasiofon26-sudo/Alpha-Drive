@@ -61,7 +61,11 @@ export default function ProductCard({ product, index = 0 }) {
           </div>
         </Link>
 
-        {hasSub ? (
+        {product.inStock === false ? (
+          <div className="w-full rounded-full border border-av-teal/60 bg-av-teal/10 py-2.5 text-center text-[10px] sm:text-xs uppercase tracking-[0.15em] font-bold text-av-alloy/60">
+            Out of Stock
+          </div>
+        ) : hasSub ? (
           <div className="flex w-full rounded-full border border-av-teal divide-x divide-av-teal/50 overflow-hidden text-[11px] sm:text-xs uppercase tracking-[0.08em] font-bold">
             <button
               onClick={() => setPurchaseType("one_time")}

@@ -87,7 +87,7 @@ export default function Footer() {
               </div>
             </dl>
             <div className="flex gap-4 mt-6">
-              <a href="#" aria-label="Facebook" className="text-av-alloy/60 hover:text-av-gold transition-colors"><Facebook className="h-5 w-5" /></a>
+              <a href="https://www.facebook.com/share/19MNs7bVaD/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-av-alloy/60 hover:text-av-gold transition-colors"><Facebook className="h-5 w-5" /></a>
               <a href="#" aria-label="Instagram" className="text-av-alloy/60 hover:text-av-gold transition-colors"><Instagram className="h-5 w-5" /></a>
               <a href="#" aria-label="TikTok" className="text-av-alloy/60 hover:text-av-gold transition-colors"><TikTokIcon className="h-5 w-5" /></a>
             </div>
