@@ -55,7 +55,10 @@ export default async function handler(req, res) {
       line_items,
       customer_email: email || undefined,
       shipping_address_collection: { allowed_countries: ["NZ", "AU"] },
-      success_url: `${origin}/checkout?success=true&session_id={CHECKOUT_SESSION_ID}`,
+      // Dedicated thank-you page instead of the checkout page itself —
+      // keeps the "just paid" state separate from the "still filling out
+      // the form" state entirely.
+      success_url: `${origin}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/checkout?canceled=true`,
       metadata: {
         shippingFirstName: shipping?.firstName || "",

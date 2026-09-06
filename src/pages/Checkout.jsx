@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { Check, Lock, Loader2, XCircle } from "lucide-react";
+import { Lock, Loader2, XCircle, ShoppingBag } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { useCart } from "@/context/CartContext";
 import { formatNZD } from "@/lib/brand";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Checkout() {
-  const { items, subtotal, clear } = useCart();
+  const { items, subtotal } = useCart();
   const [searchParams] = useSearchParams();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -15,21 +15,15 @@ export default function Checkout() {
     email: "", firstName: "", lastName: "", address: "", city: "", postcode: "", country: "New Zealand",
   });
 
-  const success = searchParams.get("success") === "true";
+  // Successful payments now land on their own /thank-you page (see
+  // src/pages/ThankYou.jsx) — this page only ever needs to handle the
+  // "still shopping" and "checkout was canceled" states.
   const canceled = searchParams.get("canceled") === "true";
 
   const shipping = subtotal > 0 ? (subtotal >= 100 ? 0 : 9.99) : 0;
   const total = subtotal + shipping;
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
-
-  // Only clear the cart once Stripe actually confirms the payment
-  // succeeded (the ?success=true redirect) — never before, so a canceled
-  // or abandoned checkout leaves the cart intact to retry.
-  useEffect(() => {
-    if (success) clear();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [success]);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -68,30 +62,22 @@ export default function Checkout() {
     }
   };
 
-  if (success) {
+  if (items.length === 0) {
     return (
       <div className="bg-av-deep pt-36 pb-24 min-h-screen">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 text-center">
-          <div className="mx-auto grid place-items-center h-16 w-16 rounded-full bg-av-gold text-av-deep mb-6">
-            <Check className="h-8 w-8" />
+          <ShoppingBag className="h-12 w-12 text-av-gold/40 mx-auto mb-6" />
+          <h1 className="font-display text-4xl font-bold text-av-alloy">Your cart is empty</h1>
+          <p className="mt-4 text-av-alloy/60">Add something first, then come back here to check out.</p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Link to="/shop" className="inline-flex items-center gap-2 bg-av-gold text-av-deep px-7 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
+              Shop The Range
+            </Link>
+            <Link to="/" className="inline-flex items-center gap-2 border-2 border-av-teal text-av-alloy px-7 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-semibold hover:border-av-gold hover:text-av-gold transition">
+              Back to Home
+            </Link>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-av-alloy">Order confirmed</h1>
-          <p className="mt-4 text-av-alloy/60 max-w-md mx-auto">
-            Thank you. A confirmation email is on its way to your inbox with your order details.
-          </p>
-          <Link to="/shop" className="mt-8 inline-flex items-center gap-2 bg-av-gold text-av-deep px-7 py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
-            Continue Shopping
-          </Link>
         </div>
-      </div>
-    );
-  }
-
-  if (items.length === 0) {
-    return (
-      <div className="bg-av-deep pt-36 pb-24 min-h-screen text-center">
-        <h1 className="font-display text-4xl font-bold text-av-alloy">Your cart is empty</h1>
-        <Link to="/shop" className="mt-6 inline-block text-av-gold underline underline-offset-4">Shop the range</Link>
       </div>
     );
   }
@@ -105,9 +91,21 @@ export default function Checkout() {
         </ScrollReveal>
 
         {canceled && (
-          <div className="mt-8 flex items-center gap-3 border border-destructive/40 bg-destructive/10 text-destructive px-5 py-4 rounded">
-            <XCircle className="h-5 w-5 shrink-0" />
-            <span className="text-sm">Checkout was canceled — your cart is still here whenever you're ready.</span>
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 border border-destructive/40 bg-destructive/10 text-destructive px-5 py-4 rounded">
+            <div className="flex items-center gap-3 flex-1">
+              <XCircle className="h-5 w-5 shrink-0" />
+              <span className="text-sm">Checkout was canceled — your cart is still here whenever you're ready.</span>
+            </div>
+            {/* Explicit, guaranteed-working links back out of this page —
+                not relying on the person to notice the header nav. */}
+            <div className="flex items-center gap-3 shrink-0">
+              <Link to="/cart" className="text-xs uppercase tracking-[0.15em] font-semibold underline underline-offset-4 hover:text-av-alloy transition">
+                View Cart
+              </Link>
+              <Link to="/shop" className="text-xs uppercase tracking-[0.15em] font-semibold underline underline-offset-4 hover:text-av-alloy transition">
+                Continue Shopping
+              </Link>
+            </div>
           </div>
         )}
 
@@ -176,6 +174,12 @@ export default function Checkout() {
               >
                 {submitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Redirecting to payment…</> : "Continue to Payment"}
               </button>
+              <Link
+                to="/cart"
+                className="mt-3 block text-center text-xs uppercase tracking-[0.2em] text-av-alloy/50 hover:text-av-gold transition"
+              >
+                Back to Cart
+              </Link>
               <p className="mt-3 text-center text-[10px] uppercase tracking-[0.2em] text-av-alloy/40">
                 {form.country || "New Zealand"} · NZD
               </p>
