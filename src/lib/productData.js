@@ -12,6 +12,8 @@ import alphaFuel from "@/assets/products/alpha-fuel.jpg";
 import alphaStack from "@/assets/products/alpha-stack.jpg";
 import tshirtBlack from "@/assets/products/tshirt-black.jpeg";
 import tshirtWhite from "@/assets/products/tshirt-white.jpeg";
+import alphaErectavo from "@/assets/products/alpha-erectavo.jpg";
+import alphaNightRecovery from "@/assets/products/alpha-night-recovery.jpg";
 
 // Shape reference (every field used somewhere in the UI):
 // {
@@ -29,7 +31,7 @@ import tshirtWhite from "@/assets/products/tshirt-white.jpeg";
 export const PRODUCTS = [
   {
     id: "havoc",
-    inStock: false,
+    inStock: true,
     slug: "havoc",
     name: "HAVOC",
     tagline: "Extreme Pre-Workout",
@@ -45,13 +47,12 @@ export const PRODUCTS = [
       "Buffers muscular fatigue during high-intensity sets",
       "Clean, dosed stimulation without the crash",
     ],
-    // Dosages below follow the confirmed front-of-bottle values.
+    // Dosages below follow the confirmed front-of-bottle values (matches
+    // the current product label photo).
     ingredients: [
-      "L-Citrulline — 6000mg",
-      "Beta-Alanine — 3200mg",
+      "L-Citrulline — 4500mg",
+      "L-Arginine — 2500mg",
       "Taurine — 2000mg",
-      "L-Tyrosine — 1000mg",
-      "Caffeine Anhydrous — 200mg",
     ],
     servings: "20 servings",
     size: "200g · Raspberry Lemonade",
@@ -60,7 +61,7 @@ export const PRODUCTS = [
   },
   {
     id: "drive",
-    inStock: false,
+    inStock: true,
     slug: "drive",
     name: "DRIVE",
     tagline: "Premium Daily Performance Multi",
@@ -89,7 +90,7 @@ export const PRODUCTS = [
   },
   {
     id: "creatine",
-    inStock: false,
+    inStock: true,
     slug: "creatine",
     name: "CREATINE",
     tagline: "Creatine + Electrolytes",
@@ -116,7 +117,7 @@ export const PRODUCTS = [
   },
   {
     id: "grow",
-    inStock: false,
+    inStock: true,
     slug: "grow",
     name: "GROW",
     tagline: "Premium Protein",
@@ -139,7 +140,7 @@ export const PRODUCTS = [
   },
   {
     id: "fuel",
-    inStock: false,
+    inStock: true,
     slug: "fuel",
     name: "FUEL",
     tagline: "Instant Cream of Rice",
@@ -161,8 +162,67 @@ export const PRODUCTS = [
     sort_order: 5,
   },
   {
+    id: "erectavo",
+    inStock: true,
+    slug: "erectavo",
+    name: "ERECTAVO",
+    tagline: "Men's Health & Intimate Performance",
+    description:
+      "A high-strength men's performance formula developed to support healthy circulation, physical stamina and everyday vitality — fully disclosed, no proprietary blends.",
+    category: "supplement",
+    image: alphaErectavo,
+    price: 79,
+    benefits: [
+      "Supports healthy blood flow and circulation",
+      "Supports physical performance and stamina",
+      "Supports male vitality and desire",
+      "Supports normal testosterone levels through zinc",
+      "Fully disclosed formula with clearly stated dosages",
+    ],
+    ingredients: [
+      "L-Citrulline — 3600mg",
+      "Beetroot Extract — 600mg",
+      "Horny Goat Weed Extract — 540mg",
+      "Zinc — 20mg",
+      "Black Pepper Extract — 12mg",
+    ],
+    servings: "15 servings",
+    size: "90 Capsules",
+    usage: "Take 6 capsules daily with water. Do not exceed the recommended daily serving.",
+    sort_order: 6,
+  },
+  {
+    id: "alpha-night-recovery",
+    inStock: true,
+    slug: "alpha-night-recovery",
+    name: "ALPHA NIGHT RECOVERY",
+    tagline: "Sleep & Recovery Formula",
+    description:
+      "A comprehensive nighttime formula created to support relaxation, restful sleep and overnight recovery — fully disclosed, no proprietary blends.",
+    category: "supplement",
+    image: alphaNightRecovery,
+    price: 79,
+    benefits: [
+      "Supports relaxation before bedtime",
+      "Supports restful, quality sleep",
+      "Helps maintain healthy sleep patterns",
+      "Supports overnight muscle and nervous-system recovery",
+      "Helps reduce feelings of everyday tension",
+    ],
+    ingredients: [
+      "Magnesium — 335mg",
+      "Valerian Root Extract — 400mg",
+      "Passionflower Extract — 300mg",
+      "L-Tryptophan — 300mg",
+    ],
+    servings: "15 servings",
+    size: "90 Capsules",
+    usage: "Take 6 capsules with water approximately 30–60 minutes before bedtime.",
+    sort_order: 7,
+  },
+  {
     id: "performance-tee-black",
-    inStock: false,
+    inStock: true,
     slug: "performance-tee-black",
     name: "Performance Tee — Black",
     tagline: "Athletic Apparel",
@@ -172,11 +232,11 @@ export const PRODUCTS = [
     image: tshirtBlack,
     price: 45.0,
     fit: "One Size – Stretch Fit",
-    sort_order: 6,
+    sort_order: 8,
   },
   {
     id: "performance-tee-white",
-    inStock: false,
+    inStock: true,
     slug: "performance-tee-white",
     name: "Performance Tee — White",
     tagline: "Athletic Apparel",
@@ -186,11 +246,11 @@ export const PRODUCTS = [
     image: tshirtWhite,
     price: 45.0,
     fit: "One Size – Stretch Fit",
-    sort_order: 7,
+    sort_order: 9,
   },
   {
     id: "complete-stack",
-    inStock: false,
+    inStock: true,
     slug: "complete-stack",
     name: "The Complete Stack",
     tagline: "Monthly Performance System",
@@ -200,6 +260,6 @@ export const PRODUCTS = [
     image: alphaStack,
     price: 299.96,
     subscription_price: 259.99,
-    sort_order: 8,
+    sort_order: 10,
   },
 ];

@@ -6,6 +6,11 @@ export const INGREDIENT_RESEARCH = {
     note: "L-Citrulline is converted to L-arginine in the kidneys, raising plasma arginine and nitric oxide production more effectively than arginine itself, supporting blood flow and vascular function.",
     ref: "Curis et al., J Nutr. 2007; Schwedhelm et al., Am J Physiol.",
   },
+  "l-arginine": {
+    name: "L-Arginine",
+    note: "L-Arginine is the direct substrate for nitric oxide synthase, supporting nitric oxide production, vasodilation and blood flow — often paired with citrulline to sustain elevated plasma arginine levels.",
+    ref: "Bode-Böger et al., Nutr Rev. 2006; McConell, Curr Opin Clin Nutr Metab Care.",
+  },
   "beta-alanine": {
     name: "Beta-Alanine",
     note: "Beta-alanine is the rate-limiting precursor to carnosine. Sustained supplementation raises muscle carnosine, which buffers hydrogen ions during high-intensity exercise and delays neuromuscular fatigue.",
@@ -60,6 +65,46 @@ export const INGREDIENT_RESEARCH = {
     name: "Oyster Extract",
     note: "Oyster extract is a natural source of zinc, a mineral involved in testosterone metabolism, immune function and cellular repair, and has traditionally been associated with male vitality and reproductive health.",
     ref: "Fallah et al., Nutrients. 2018 (zinc and reproductive health review).",
+  },
+  "beetroot extract": {
+    name: "Beetroot Extract",
+    note: "Beetroot is a concentrated dietary source of nitrates, which are converted to nitric oxide in the body. This supports vasodilation, circulation and exercise performance, complementing citrulline's effects on the same pathway.",
+    ref: "Jones, Sports Med. 2014 (dietary nitrate and exercise performance).",
+  },
+  "horny goat weed extract": {
+    name: "Horny Goat Weed Extract",
+    note: "Horny Goat Weed (Epimedium) contains icariin, a flavonoid studied for its effects on nitric oxide signalling and its traditional use supporting male vitality, desire and energy.",
+    ref: "Zhang & Yang, J Sex Med. 2006 (icariin and PDE5 activity).",
+  },
+  "zinc": {
+    name: "Zinc",
+    note: "Zinc is an essential trace mineral that contributes to normal testosterone levels, fertility, reproduction and immune function. Deficiency is linked to reduced testosterone and impaired reproductive health.",
+    ref: "Prasad et al., J Am Coll Nutr. 1996 (zinc and testosterone status).",
+  },
+  "black pepper extract": {
+    name: "Black Pepper Extract",
+    note: "Black pepper extract (piperine) is included in formulas to help enhance the bioavailability and absorption of co-ingested botanical compounds.",
+    ref: "Shoba et al., Planta Med. 1998 (piperine and bioavailability).",
+  },
+  "magnesium": {
+    name: "Magnesium",
+    note: "Magnesium is an essential mineral that supports normal muscle and nervous-system function and energy metabolism. Magnesium glycinate is a well-absorbed form often selected for nighttime formulas.",
+    ref: "Abbasi et al., J Res Med Sci. 2012 (magnesium supplementation and sleep quality).",
+  },
+  "valerian root extract": {
+    name: "Valerian Root Extract",
+    note: "Valerian is a traditional botanical studied for its calming properties, commonly used to support relaxation and help prepare the body for restful sleep.",
+    ref: "Bent et al., Am J Med. 2006 (valerian and sleep quality, meta-analysis).",
+  },
+  "passionflower extract": {
+    name: "Passionflower Extract",
+    note: "Passionflower is traditionally used to support calmness and relaxation, and is often paired with valerian in nighttime botanical blends.",
+    ref: "Akhondzadeh et al., J Clin Pharm Ther. 2001 (passionflower and anxiety).",
+  },
+  "l-tryptophan": {
+    name: "L-Tryptophan",
+    note: "L-Tryptophan is an essential amino acid used in the body's natural pathways associated with serotonin and melatonin production, which are involved in mood regulation and the normal sleep-wake cycle.",
+    ref: "Silber & Schmitt, Neurosci Biobehav Rev. 2010 (tryptophan and sleep).",
   },
 };
 

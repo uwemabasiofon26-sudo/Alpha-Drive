@@ -10,7 +10,7 @@ import { Resend } from "resend";
 import { subscriberWelcomeEmail, companySubscriberNotificationEmail } from "./_lib/email-templates.js";
 
 const FROM_EMAIL = process.env.ORDER_NOTIFICATION_FROM || "Alpha Valour <onboarding@resend.dev>";
-const COMPANY_EMAIL = process.env.ORDER_NOTIFICATION_EMAIL || "support@alphavalour.co.nz";
+const COMPANY_EMAIL = process.env.ORDER_NOTIFICATION_EMAIL || "support@alphavalour.com";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
