@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Lock, Loader2, XCircle, ShoppingBag } from "lucide-react";
 import { Image } from "@/components/ui/image";
@@ -24,6 +24,22 @@ export default function Checkout() {
   const total = subtotal + shipping;
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  // If a customer starts checkout, gets redirected to Stripe, then hits
+  // Back before completing payment, browsers often restore this page from
+  // the back/forward cache with its JS state frozen mid-request — so the
+  // button was stuck showing "Redirecting to payment…" forever. The
+  // "pageshow" event fires with event.persisted === true specifically when
+  // a page is restored from bfcache (as opposed to a normal fresh load,
+  // where submitting is already false by default), so this only resets the
+  // button in the exact case that was broken.
+  useEffect(() => {
+    const handlePageShow = (event) => {
+      if (event.persisted) setSubmitting(false);
+    };
+    window.addEventListener("pageshow", handlePageShow);
+    return () => window.removeEventListener("pageshow", handlePageShow);
+  }, []);
 
   const submit = async (e) => {
     e.preventDefault();

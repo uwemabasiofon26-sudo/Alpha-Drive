@@ -27,7 +27,7 @@ const FAQS = [
   },
   {
     q: "What sizes do the athletic T-shirts come in?",
-    a: "The Alpha Valour performance tees come in a range of sizes from S to XXL, subject to stock availability. Select your size and colour on the product page.",
+    a: "The Alpha Valour performance tees are One Size – Stretch Fit, designed to comfortably fit a wide range of body types.",
   },
   {
     q: "How should I use Alpha Havoc?",
