@@ -6,14 +6,6 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const FAQS = [
   {
-    q: "What's the difference between one-time and monthly subscription?",
-    a: "A one-time purchase is a single order at full price. A monthly subscription bills you each month and ships automatically at a discounted rate — you save on every cycle and can cancel anytime.",
-  },
-  {
-    q: "Can I cancel or pause my subscription?",
-    a: "Yes. You can pause, skip or cancel your subscription at any time from your account. There are no lock-in contracts.",
-  },
-  {
     q: "How are the formulas disclosed?",
     a: "Every product lists its full ingredient breakdown with exact dosages — no proprietary blends. Supplement facts are printed on each product page and on the packaging.",
   },
@@ -22,8 +14,8 @@ const FAQS = [
     a: "All prices are in New Zealand Dollars (NZD). We currently ship within New Zealand.",
   },
   {
-    q: "What is the Complete Monthly Performance Stack?",
-    a: "It's all four supplements — HAVOC, DRIVE, GROW and FUEL — bundled as a single monthly subscription at a discounted rate of $259.99 (individual value $299.96).",
+    q: "What is the Complete Performance Stack?",
+    a: "It's all five supplements — HAVOC, DRIVE, CREATINE, GROW and FUEL — bundled as a single one-time purchase at a discounted price of $259.99 (individual value $323.95).",
   },
   {
     q: "What sizes do the athletic T-shirts come in?",

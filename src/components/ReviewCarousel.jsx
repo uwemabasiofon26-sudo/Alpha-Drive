@@ -10,7 +10,7 @@ const REVIEWS = [
     rating: 5,
   },
   {
-    quote: "The monthly stack keeps me consistent for the first time. DRIVE every morning, HAVOC before training — I feel the difference every week.",
+    quote: "The stack keeps me consistent for the first time. DRIVE every morning, HAVOC before training — I feel the difference every week.",
     name: "Priya S.",
     role: "CrossFit Athlete",
     rating: 5,

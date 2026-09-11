@@ -66,7 +66,7 @@ export default function PerformanceNutrition() {
         <ScrollReveal>
           <h2 className="font-display text-4xl md:text-6xl font-bold text-av-alloy">Build Your Performance System</h2>
           <p className="mt-4 text-av-alloy/60 max-w-xl mx-auto">
-            Get all four products together as a complete monthly stack and save.
+            Get all five products together as a complete stack and save.
           </p>
           <Link to="/stack" className="mt-8 inline-flex items-center gap-2 bg-av-gold text-av-deep px-8 py-4 rounded-full text-sm uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
             View The Stack <ArrowUpRight className="h-4 w-4" />

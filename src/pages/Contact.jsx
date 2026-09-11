@@ -23,7 +23,7 @@ export default function Contact() {
             Talk to the performance team.
           </h1>
           <p className="mt-4 md:mt-5 text-sm md:text-base text-av-alloy/70 max-w-xl">
-            Questions about products, subscriptions or your order? We're here to help.
+            Questions about products or your order? We're here to help.
           </p>
         </ScrollReveal>
 

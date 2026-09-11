@@ -48,7 +48,7 @@ export default function Checkout() {
     setError("");
 
     const stripeItems = items.map((item) => ({
-      name: `${item.name}${item.purchaseType === "subscription" ? " (Monthly)" : ""}`,
+      name: item.name,
       price: item.price,
       quantity: item.quantity,
       purchaseType: item.purchaseType,
@@ -168,7 +168,7 @@ export default function Checkout() {
                     <div className="flex-1 text-sm">
                       <p className="text-av-alloy font-semibold">{item.name}</p>
                       <p className="text-xs text-av-alloy/50">
-                        {item.purchaseType === "subscription" ? "Monthly" : "One-time"}{item.size ? ` · ${item.size}` : ""} · Qty {item.quantity}
+                        {item.size ? `${item.size} · ` : ""}Qty {item.quantity}
                       </p>
                       <p className="text-av-gold mt-1">{formatNZD(item.price * item.quantity)}</p>
                     </div>

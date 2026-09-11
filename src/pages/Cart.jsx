@@ -44,11 +44,11 @@ export default function Cart() {
                   <div className="flex justify-between gap-3">
                     <div>
                       <h3 className="font-display text-lg font-bold text-av-alloy">{item.name}</h3>
-                      <p className="text-xs uppercase tracking-[0.15em] text-av-alloy/50 mt-1">
-                        {item.purchaseType === "subscription" ? "Monthly Subscription" : "One-time"}
-                        {item.size ? ` · ${item.size}` : ""}
-                        {item.color ? ` · ${item.color}` : ""}
-                      </p>
+                      {(item.size || item.color) && (
+                        <p className="text-xs uppercase tracking-[0.15em] text-av-alloy/50 mt-1">
+                          {[item.size, item.color].filter(Boolean).join(" · ")}
+                        </p>
+                      )}
                     </div>
                     <button onClick={() => removeItem(item.cartId)} className="text-av-alloy/40 hover:text-destructive transition" aria-label="Remove">
                       <Trash2 className="h-4 w-4" />

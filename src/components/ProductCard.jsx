@@ -1,17 +1,12 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { formatNZD } from "@/lib/brand";
 import { useCart } from "@/context/CartContext";
-import { cn } from "@/lib/utils";
 
 export default function ProductCard({ product, index = 0 }) {
-  const [purchaseType, setPurchaseType] = useState("one_time");
   const { addItem } = useCart();
-  const hasSub = product.subscription_price && product.subscription_price > 0;
-  const price = purchaseType === "subscription" && hasSub ? product.subscription_price : product.price;
 
   const handleAdd = () => {
     addItem({
@@ -19,8 +14,8 @@ export default function ProductCard({ product, index = 0 }) {
       name: product.name,
       slug: product.slug,
       image: product.image,
-      price,
-      purchaseType,
+      price: product.price,
+      purchaseType: "one_time",
     });
   };
 
@@ -64,33 +59,6 @@ export default function ProductCard({ product, index = 0 }) {
         {product.inStock === false ? (
           <div className="w-full rounded-full border border-av-teal/60 bg-av-teal/10 py-2.5 text-center text-[10px] sm:text-xs uppercase tracking-[0.15em] font-bold text-av-alloy/60">
             Out of Stock
-          </div>
-        ) : hasSub ? (
-          <div className="flex w-full rounded-full border border-av-teal divide-x divide-av-teal/50 overflow-hidden text-[11px] sm:text-xs uppercase tracking-[0.08em] font-bold">
-            <button
-              onClick={() => setPurchaseType("one_time")}
-              className={cn(
-                "flex-1 py-3 px-1.5 transition-colors",
-                purchaseType === "one_time" ? "bg-av-teal text-av-gold" : "bg-av-teal/20 text-av-alloy/70"
-              )}
-            >
-              One-time · {formatNZD(product.price)}
-            </button>
-            <button
-              onClick={() => setPurchaseType("subscription")}
-              className={cn(
-                "flex-1 py-3 px-1.5 bg-transparent transition-colors",
-                purchaseType === "subscription" ? "text-av-gold" : "text-av-alloy/70"
-              )}
-            >
-              Monthly · {formatNZD(product.subscription_price)}
-            </button>
-            <button
-              onClick={handleAdd}
-              className="flex-1 py-3 px-1.5 bg-av-gold text-av-deep hover:brightness-110 transition"
-            >
-              Add to Cart
-            </button>
           </div>
         ) : (
           <button

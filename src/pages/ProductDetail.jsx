@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ArrowRight, RotateCcw } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { useProduct, useProducts } from "@/hooks/useProducts";
 import { formatNZD } from "@/lib/brand";
 import { useCart } from "@/context/CartContext";
-import SubscriptionToggle from "@/components/SubscriptionToggle";
 import FuelBar from "@/components/FuelBar";
 import ScrollReveal from "@/components/ScrollReveal";
 import { cn } from "@/lib/utils";
@@ -17,7 +16,6 @@ export default function ProductDetail() {
   const { data: product, isLoading } = useProduct(slug);
   const { data: all } = useProducts();
   const { addItem } = useCart();
-  const [purchaseType, setPurchaseType] = useState("one_time");
   const [size, setSize] = useState(null);
   const [color, setColor] = useState(null);
   const [added, setAdded] = useState(false);
@@ -34,11 +32,7 @@ export default function ProductDetail() {
     );
 
   const isApparel = product.category === "apparel";
-  const isStack = product.category === "stack";
-  const price =
-    purchaseType === "subscription" && product.subscription_price
-      ? product.subscription_price
-      : product.price;
+  const price = product.price;
 
   const related = (all || []).filter((p) => p.id !== product.id && p.category !== "stack").slice(0, 3);
 
@@ -49,7 +43,7 @@ export default function ProductDetail() {
       slug: product.slug,
       image: product.image,
       price,
-      purchaseType: isStack ? "subscription" : purchaseType,
+      purchaseType: "one_time",
       size,
       color,
     });
@@ -98,21 +92,10 @@ export default function ProductDetail() {
               <p className="mt-5 text-av-alloy/70 leading-relaxed text-lg">{product.description}</p>
             </div>
 
-            {/* PRICE / SUBSCRIPTION */}
+            {/* PRICE */}
             <div className="border-y border-av-teal/40 py-6">
-              {!isStack && product.subscription_price ? (
-                <SubscriptionToggle
-                  value={purchaseType}
-                  onChange={setPurchaseType}
-                  oneTime={product.price}
-                  monthly={product.subscription_price}
-                />
-              ) : null}
-              <div className="mt-4 hidden md:flex items-baseline gap-3">
+              <div className="hidden md:flex items-baseline gap-3">
                 <span className="font-display text-4xl font-bold text-av-gold">{formatNZD(price)}</span>
-                {purchaseType === "subscription" && product.subscription_price && (
-                  <span className="text-xs uppercase tracking-[0.2em] text-emerald-400 font-semibold">Save {formatNZD(product.price - product.subscription_price)} / month</span>
-                )}
               </div>
             </div>
 
@@ -214,13 +197,6 @@ export default function ProductDetail() {
                 </div>
               </div>
             )}
-
-            {isStack && (
-              <div className="flex items-start gap-3 text-sm text-av-alloy/70 border border-av-teal/40 p-5 rounded">
-                <RotateCcw className="h-5 w-5 text-av-gold shrink-0 mt-0.5" />
-                <span>This is a monthly subscription. You'll be billed monthly and receive all four products every cycle. Cancel anytime.</span>
-              </div>
-            )}
           </div>
         </div>
 
@@ -248,7 +224,7 @@ export default function ProductDetail() {
         )}
       </div>
 
-      <FuelBar product={product} purchaseType={isStack ? "subscription" : purchaseType} price={price} size={size} color={color} />
+      <FuelBar product={product} purchaseType="one_time" price={price} size={size} color={color} />
     </div>
   );
 }

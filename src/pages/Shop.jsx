@@ -34,7 +34,7 @@ export default function Shop() {
             Shop
           </h1>
           <p className="mt-4 text-av-alloy/60 max-w-xl">
-            Performance nutrition and athletic apparel. Buy individually or subscribe and save on every monthly order.
+            Performance nutrition and athletic apparel. Buy individually, or grab the complete stack and save.
           </p>
         </ScrollReveal>
 

@@ -53,7 +53,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-av-alloy/70">
               <li><Link to="/shop" className="hover:text-av-gold transition-colors">All Products</Link></li>
               <li><Link to="/performance-nutrition" className="hover:text-av-gold transition-colors">Performance Nutrition</Link></li>
-              <li><Link to="/stack" className="hover:text-av-gold transition-colors">The Monthly Stack</Link></li>
+              <li><Link to="/stack" className="hover:text-av-gold transition-colors">The Stack</Link></li>
               <li><Link to="/shop?category=apparel" className="hover:text-av-gold transition-colors">Athletic Apparel</Link></li>
             </ul>
           </div>

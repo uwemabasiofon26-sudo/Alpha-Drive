@@ -18,7 +18,7 @@ const WHY = [
   { t: "Purpose-built performance products", d: "Engineered around real training demands — not generic wellness trends." },
   { t: "Fully disclosed formulas", d: "Every ingredient and dose printed clearly. No proprietary blends hiding under-dosed filler." },
   { t: "Effective, practical dosages", d: "Clinical, functional amounts that actually move the needle session after session." },
-  { t: "Individual or monthly stack", d: "Buy what you need, or subscribe to the complete system and save." },
+  { t: "Individual or complete stack", d: "Buy what you need, or grab the complete system and save." },
   { t: "Built for consistency", d: "Designed to support long-term progress, not a single hype cycle." },
 ];
 
@@ -58,7 +58,7 @@ export default function Home() {
   const apparel = all.filter((p) => p.category === "apparel");
   const featured = supplements;
   const stack = all.find((p) => p.category === "stack");
-  const stackPrice = stack?.subscription_price || 259.99;
+  const stackPrice = stack?.price || 259.99;
   // Kept in one place (also mirrored in Stack.jsx) rather than hardcoding
   // the line-through price and "Save $X" text separately, so they can't
   // drift out of sync again.
@@ -77,8 +77,16 @@ export default function Home() {
             mobile browsers that don't support it (rather than erroring),
             which is what caused the black gap at the top on some phones.
             bg-av-deep is a safety net so a failed/slow-loading video shows
-            the brand background instead of pure black either way. */}
-        <div className="relative h-[55vh] md:h-[75vh] w-full overflow-hidden grain bg-av-deep">
+            the brand background instead of pure black either way.
+            The hero-poster background-image (matching the video's own
+            object-position) is a second safety net: it paints instantly
+            from the page's HTML/CSS, before the video file has downloaded
+            or decoded a frame, so there's never a blank flash while the
+            (much larger) video is still loading on a mobile connection. */}
+        <div
+          className="relative h-[55vh] md:h-[75vh] w-full overflow-hidden grain bg-av-deep bg-cover bg-top md:bg-center"
+          style={{ backgroundImage: `url(${heroPoster})` }}
+        >
           <video
             ref={heroVideoRef}
             className="absolute inset-0 h-full w-full object-cover object-top md:object-center"
@@ -215,7 +223,7 @@ export default function Home() {
               One system. Five products. Total performance.
             </h2>
             <p className="mt-5 md:mt-6 text-av-alloy/70 leading-relaxed max-w-lg text-sm md:text-base">
-              HAVOC, DRIVE, CREATINE, GROW and FUEL together as a complete monthly performance system — supporting preparation, training, nutrition and recovery.
+              HAVOC, DRIVE, CREATINE, GROW and FUEL together as a complete performance system — supporting preparation, training, nutrition and recovery.
             </p>
             <div className="mt-6 md:mt-8 flex items-baseline gap-4 flex-wrap">
               <span className="font-display text-4xl md:text-5xl font-bold text-av-gold">{formatNZD(stackPrice)}</span>
@@ -224,7 +232,7 @@ export default function Home() {
             </div>
             <Rating value={4.9} count={312} className="mt-4" />
             <Link to="/stack" className="mt-6 md:mt-8 inline-flex items-center gap-2 bg-av-gold text-av-deep px-6 md:px-7 py-3 md:py-3.5 rounded-full text-[11px] md:text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110 transition">
-              Subscribe To The Stack <ArrowUpRight className="h-4 w-4" />
+              Shop The Stack <ArrowUpRight className="h-4 w-4" />
             </Link>
           </ScrollReveal>
           <ScrollReveal delay={0.1} className="frame-corner overflow-hidden bg-av-teal/20">

@@ -14,16 +14,12 @@ const SECTIONS = [
     body: "Unopened supplements and unworn apparel may be returned within 30 days of delivery for a full refund, excluding return shipping. To initiate a return, contact our support team with your order number. Refunds are processed within 5 business days of receiving the returned items.",
   },
   {
-    title: "Subscriptions",
-    body: "Monthly subscriptions bill and ship automatically at the discounted subscription price. You can pause, skip or cancel at any time from your account — no lock-in contracts. The Complete Monthly Performance Stack is a subscription-only product.",
-  },
-  {
     title: "Privacy Policy",
     body: "We collect only the information necessary to process your orders and provide support — contact details, shipping address and payment authorization. We never sell your personal data. Payment is processed through secure, encrypted third-party providers; we do not store full card details.",
   },
   {
     title: "Terms of Service",
-    body: "By placing an order you agree to the listed prices and subscription terms. Product information and supplement facts are provided for reference; final specifications are confirmed by the manufacturer. Statements about products have not been evaluated by regulatory authorities and products are not intended to diagnose, treat, cure or prevent any disease.",
+    body: "By placing an order you agree to the listed prices. Product information and supplement facts are provided for reference; final specifications are confirmed by the manufacturer. Statements about products have not been evaluated by regulatory authorities and products are not intended to diagnose, treat, cure or prevent any disease.",
   },
   {
     title: "Product Disclaimer",

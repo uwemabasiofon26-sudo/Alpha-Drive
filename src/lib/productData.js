@@ -21,7 +21,7 @@ import alphaNightRecovery from "@/assets/products/alpha-night-recovery.jpg";
 //   category: "supplement" | "apparel" | "stack",
 //   image, supplement_facts_image?,
 //   inStock: boolean,
-//   price, subscription_price?,
+//   price,
 //   benefits?: string[], ingredients?: string[],
 //   servings?, size?, usage?,
 //   colors?: string[], sizes?: string[], fit?: string,
@@ -41,7 +41,6 @@ export const PRODUCTS = [
     image: alphaHavoc,
     supplement_facts_image: alphaHavocFacts,
     price: 69.99,
-    subscription_price: 59.99,
     benefits: [
       "Supports nitric oxide production and blood flow",
       "Buffers muscular fatigue during high-intensity sets",
@@ -71,7 +70,6 @@ export const PRODUCTS = [
     image: alphaDrive,
     supplement_facts_image: alphaDriveFacts,
     price: 79,
-    subscription_price: 67.99,
     benefits: [
       "Complete multivitamin and mineral foundation",
       "Oyster extract, maca and ginseng for vitality",
@@ -99,7 +97,6 @@ export const PRODUCTS = [
     category: "supplement",
     image: alphaCreatine,
     price: 44.99,
-    subscription_price: 38.99,
     benefits: [
       "Supports strength and power output",
       "Electrolytes for hydration support",
@@ -126,7 +123,6 @@ export const PRODUCTS = [
     category: "supplement",
     image: alphaGrow,
     price: 89.99,
-    subscription_price: 76.99,
     benefits: [
       "25g of protein per serving",
       "Smooth, creamy texture that mixes easily",
@@ -149,7 +145,6 @@ export const PRODUCTS = [
     category: "supplement",
     image: alphaFuel,
     price: 39.99,
-    subscription_price: 33.99,
     benefits: [
       "Fast-digesting carbohydrate source",
       "Smooth, easy-mix texture",
@@ -253,13 +248,12 @@ export const PRODUCTS = [
     inStock: true,
     slug: "complete-stack",
     name: "The Complete Stack",
-    tagline: "Monthly Performance System",
+    tagline: "Complete Performance System",
     description:
-      "HAVOC, DRIVE, CREATINE, GROW and FUEL together as a complete monthly performance system. Build. Fuel. Perform.",
+      "HAVOC, DRIVE, CREATINE, GROW and FUEL together as a complete performance system. Build. Fuel. Perform.",
     category: "stack",
     image: alphaStack,
-    price: 299.96,
-    subscription_price: 259.99,
+    price: 259.99,
     sort_order: 10,
   },
 ];
