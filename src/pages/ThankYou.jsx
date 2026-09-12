@@ -2,8 +2,11 @@ import { useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Check } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function ThankYou() {
+  useSEO({ title: "Order Confirmed", path: "/thank-you", noindex: true });
+
   const { clear } = useCart();
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get("session_id");

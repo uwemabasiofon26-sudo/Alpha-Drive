@@ -1,5 +1,8 @@
 export const LOGO_URL = "https://media.base44.com/images/public/6a88bf652a5df8dcfa09b143/c6983d45d_logo.png";
 export const CURRENCY = "NZD";
+export const SITE_URL = "https://alphavalour.com";
+export const SITE_NAME = "Alpha Valour";
+export const BRAND_TAGLINE = "Performance Nutrition & Supplements";
 
 export const formatNZD = (n) => `$${Number(n || 0).toFixed(2)}`;
 

@@ -5,8 +5,15 @@ import { useProducts } from "@/hooks/useProducts";
 import { formatNZD } from "@/lib/brand";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxText from "@/components/ParallaxText";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function PerformanceNutrition() {
+  useSEO({
+    title: "Performance Nutrition Supplements",
+    description: "Explore Alpha Valour's performance nutrition range — pre-workout, protein, creatine, daily performance and recovery supplements, all fully disclosed with exact dosages.",
+    path: "/performance-nutrition",
+  });
+
   const { data: products } = useProducts();
   const supps = (products || []).filter((p) => p.category === "supplement");
 

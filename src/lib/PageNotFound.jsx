@@ -1,8 +1,11 @@
 import { useLocation } from 'react-router-dom';
+import { useSEO } from '@/hooks/useSEO';
 
 export default function PageNotFound() {
     const location = useLocation();
     const pageName = location.pathname.substring(1);
+
+    useSEO({ title: "Page Not Found", path: location.pathname, noindex: true });
 
     return (
         <div className="min-h-screen flex items-center justify-center p-6 bg-slate-50">

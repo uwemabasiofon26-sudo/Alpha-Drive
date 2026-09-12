@@ -5,6 +5,7 @@ import { useProducts } from "@/hooks/useProducts";
 import ProductCard from "@/components/ProductCard";
 import ScrollReveal from "@/components/ScrollReveal";
 import { cn } from "@/lib/utils";
+import { useSEO } from "@/hooks/useSEO";
 
 const FILTERS = [
   { key: "all", label: "All" },
@@ -14,6 +15,12 @@ const FILTERS = [
 ];
 
 export default function Shop() {
+  useSEO({
+    title: "Shop Supplements & Performance Nutrition",
+    description: "Shop the full Alpha Valour range — pre-workout, creatine, protein, daily performance and recovery supplements. Fully disclosed formulas, no proprietary blends.",
+    path: "/shop",
+  });
+
   const { data: products, isLoading } = useProducts();
   const [params, setParams] = useSearchParams();
   const active = params.get("category") || "all";

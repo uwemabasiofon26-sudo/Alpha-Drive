@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Plus, Minus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useSEO } from "@/hooks/useSEO";
 
 const FAQS = [
   {
@@ -61,6 +62,21 @@ function FaqItem({ item, index }) {
 }
 
 export default function About() {
+  useSEO({
+    title: "About Us & FAQ",
+    description: "Alpha Valour is a performance nutrition and supplement brand built on fully disclosed formulas — no proprietary blends. Learn our story and get answers to common questions.",
+    path: "/about",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: FAQS.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  });
+
   return (
     <div className="bg-av-deep pt-28 md:pt-36 pb-24">
       <section className="mx-auto max-w-[1400px] px-5 md:px-10">

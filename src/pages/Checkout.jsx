@@ -5,8 +5,11 @@ import { Image } from "@/components/ui/image";
 import { useCart } from "@/context/CartContext";
 import { formatNZD } from "@/lib/brand";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Checkout() {
+  useSEO({ title: "Checkout", path: "/checkout", noindex: true });
+
   const { items, subtotal } = useCart();
   const [searchParams] = useSearchParams();
   const [submitting, setSubmitting] = useState(false);

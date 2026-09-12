@@ -10,6 +10,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxText from "@/components/ParallaxText";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import ApparelMarquee from "@/components/ApparelMarquee";
+import { useSEO } from "@/hooks/useSEO";
 import heroVideoMp4 from "@/assets/video/hero.mp4";
 import heroVideoWebm from "@/assets/video/hero.webm";
 import heroPoster from "@/assets/video/hero-poster.jpg";
@@ -36,6 +37,12 @@ function Rating({ value = 4.9, count = 128, className }) {
 }
 
 export default function Home() {
+  useSEO({
+    title: "Performance Nutrition & Supplements",
+    description: "Alpha Valour is a performance nutrition and supplement brand. Fully disclosed pre-workout, creatine, protein and recovery formulas — no proprietary blends, ever.",
+    path: "/",
+  });
+
   const heroVideoRef = useRef(null);
 
   useEffect(() => {

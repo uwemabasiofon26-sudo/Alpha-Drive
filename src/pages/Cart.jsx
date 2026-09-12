@@ -4,8 +4,11 @@ import { Image } from "@/components/ui/image";
 import { useCart } from "@/context/CartContext";
 import { formatNZD } from "@/lib/brand";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Cart() {
+  useSEO({ title: "Your Cart", path: "/cart", noindex: true });
+
   const { items, removeItem, updateQty, subtotal } = useCart();
 
   if (items.length === 0) {

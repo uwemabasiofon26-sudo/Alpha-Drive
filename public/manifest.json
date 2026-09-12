@@ -1,0 +1,16 @@
+{
+  "name": "Alpha Valour — Performance Nutrition & Supplements",
+  "short_name": "Alpha Valour",
+  "description": "Alpha Valour is a performance nutrition and supplement brand. Fully disclosed pre-workout, creatine, protein, daily performance and recovery formulas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A2426",
+  "theme_color": "#0A2426",
+  "icons": [
+    {
+      "src": "https://media.base44.com/images/public/user_6a5e95b47bea9e259ccf87b9/62c512fa2_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

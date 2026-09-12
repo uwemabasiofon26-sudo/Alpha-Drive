@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useSEO } from "@/hooks/useSEO";
 
 const SECTIONS = [
   {
@@ -56,6 +57,12 @@ function Item({ s, i }) {
 }
 
 export default function Policy() {
+  useSEO({
+    title: "Shipping, Returns & Privacy Policy",
+    description: "Alpha Valour's shipping, returns, refunds, privacy and terms of service policies.",
+    path: "/policy",
+  });
+
   return (
     <div className="bg-av-deep pt-28 md:pt-36 pb-24">
       <section className="mx-auto max-w-[1400px] px-5 md:px-10">

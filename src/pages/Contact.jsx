@@ -2,8 +2,15 @@ import { useState } from "react";
 import { Mail, MapPin, MessageSquare } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { CURRENCY } from "@/lib/brand";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Contact() {
+  useSEO({
+    title: "Contact Us",
+    description: "Get in touch with Alpha Valour for questions about our performance nutrition and supplement products or your order.",
+    path: "/contact",
+  });
+
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
 

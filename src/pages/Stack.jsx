@@ -7,8 +7,15 @@ import { useProducts } from "@/hooks/useProducts";
 import { formatNZD } from "@/lib/brand";
 import { useCart } from "@/context/CartContext";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Stack() {
+  useSEO({
+    title: "The Complete Stack",
+    description: "HAVOC, DRIVE, CREATINE, GROW and FUEL bundled as a complete performance nutrition system — a discounted one-time purchase for training, nutrition and recovery.",
+    path: "/stack",
+  });
+
   const { data: products } = useProducts();
   const { addItem } = useCart();
   const [packed, setPacked] = useState([]);

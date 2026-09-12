@@ -4,12 +4,13 @@ import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import { Image } from "@/components/ui/image";
 import { useProduct, useProducts } from "@/hooks/useProducts";
-import { formatNZD } from "@/lib/brand";
+import { formatNZD, SITE_URL } from "@/lib/brand";
 import { useCart } from "@/context/CartContext";
 import FuelBar from "@/components/FuelBar";
 import ScrollReveal from "@/components/ScrollReveal";
 import { cn } from "@/lib/utils";
 import { researchForIngredient } from "@/lib/ingredientResearch";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function ProductDetail() {
   const { slug } = useParams();
@@ -19,6 +20,36 @@ export default function ProductDetail() {
   const [size, setSize] = useState(null);
   const [color, setColor] = useState(null);
   const [added, setAdded] = useState(false);
+
+  useSEO({
+    title: product ? product.name : "Product",
+    description: product
+      ? `${product.description} ${formatNZD(product.price)} — shop ${product.name} at Alpha Valour, performance nutrition and supplements.`.slice(0, 160)
+      : undefined,
+    path: `/product/${slug}`,
+    image: product?.image ? `${SITE_URL}${product.image}` : undefined,
+    type: "product",
+    structuredData: product
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: product.name,
+          description: product.description,
+          image: `${SITE_URL}${product.image}`,
+          sku: product.id,
+          brand: { "@type": "Brand", name: "Alpha Valour" },
+          offers: {
+            "@type": "Offer",
+            url: `${SITE_URL}/product/${product.slug}`,
+            priceCurrency: "NZD",
+            price: product.price,
+            availability: product.inStock === false
+              ? "https://schema.org/OutOfStock"
+              : "https://schema.org/InStock",
+          },
+        }
+      : null,
+  });
 
   if (isLoading)
     return <div className="pt-40 min-h-screen bg-av-deep" />;
