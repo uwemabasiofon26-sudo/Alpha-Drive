@@ -54,6 +54,12 @@ export default function ProductCard({ product, index = 0 }) {
             </div>
             <span>4.9 (128)</span>
           </div>
+          {product.compare_at_price && product.compare_at_price > product.price && (
+            <p className="mt-1.5 text-[11px] uppercase tracking-[0.15em]">
+              <span className="text-av-alloy/40 line-through">{formatNZD(product.compare_at_price)}</span>
+              <span className="ml-2 text-emerald-400 font-semibold">Launch Price</span>
+            </p>
+          )}
         </Link>
 
         {product.inStock === false ? (

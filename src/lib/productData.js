@@ -8,7 +8,7 @@ import alphaDrive from "@/assets/products/alpha-drive.jpg";
 import alphaDriveFacts from "@/assets/products/alpha-drive-facts.jpg";
 import alphaCreatine from "@/assets/products/alpha-creatine.jpg";
 import alphaGrow from "@/assets/products/alpha-grow.jpg";
-import alphaFuel from "@/assets/products/alpha-fuel.jpg";
+import alphaGlycoload from "@/assets/products/alpha-glycoload.jpg";
 import alphaStack from "@/assets/products/alpha-stack.jpg";
 import tshirtBlack from "@/assets/products/tshirt-black.jpeg";
 import tshirtWhite from "@/assets/products/tshirt-white.jpeg";
@@ -21,7 +21,7 @@ import alphaNightRecovery from "@/assets/products/alpha-night-recovery.jpg";
 //   category: "supplement" | "apparel" | "stack",
 //   image, supplement_facts_image?,
 //   inStock: boolean,
-//   price,
+//   price, compare_at_price?,
 //   benefits?: string[], ingredients?: string[],
 //   servings?, size?, usage?,
 //   colors?: string[], sizes?: string[], fit?: string,
@@ -46,16 +46,17 @@ export const PRODUCTS = [
       "Buffers muscular fatigue during high-intensity sets",
       "Clean, dosed stimulation without the crash",
     ],
-    // Dosages below follow the confirmed front-of-bottle values (matches
-    // the current product label photo).
+    // Dosages below match the Supplement Facts panel.
     ingredients: [
       "L-Citrulline — 4500mg",
       "L-Arginine — 2500mg",
       "Taurine — 2000mg",
+      "L-Theanine — 150mg",
+      "Caffeine Anhydrous — 150mg",
     ],
     servings: "20 servings",
     size: "200g · Raspberry Lemonade",
-    usage: "Mix 1 scoop (10g) with water 20–30 minutes before training.",
+    usage: "Mix 1 scoop with water 20–30 minutes before training.",
     sort_order: 1,
   },
   {
@@ -135,25 +136,32 @@ export const PRODUCTS = [
     sort_order: 4,
   },
   {
-    id: "fuel",
+    id: "glycoload",
     inStock: true,
-    slug: "fuel",
-    name: "FUEL",
-    tagline: "Instant Cream of Rice",
+    slug: "glycoload",
+    name: "GLYCOLOAD",
+    tagline: "Fast-Digesting Carbohydrate",
     description:
-      "A fast-digesting, low-fibre carbohydrate source in a smooth instant cream of rice — Chocolate Hazelnut flavour, easy mix, built to refill glycogen around training.",
+      "A fast-digesting maltodextrin carbohydrate powder for athletes and gym users who need convenient training fuel — Raspberry Lemonade flavour, mixes easily with water, use before, during or after training.",
     category: "supplement",
-    image: alphaFuel,
+    image: alphaGlycoload,
+    // Launch pricing: selling at 39.99, regular RRP 44.99. The
+    // compare_at_price renders as a struck-through "was" price next to the
+    // live price; remove this field to end the launch offer.
     price: 39.99,
+    compare_at_price: 44.99,
     benefits: [
       "Fast-digesting carbohydrate source",
-      "Smooth, easy-mix texture",
-      "Supports glycogen resynthesis around training",
+      "Helps support muscle glycogen replenishment after exercise",
+      "Provides convenient training fuel",
+      "Suitable before, during or after training",
+      "Easy to mix with water or your favourite sports drink",
+      "Easy way to increase daily carbohydrate intake",
     ],
-    ingredients: ["Instant Cream of Rice — 40g"],
-    servings: "25 servings",
-    size: "1kg · Chocolate Hazelnut",
-    usage: "Mix with water immediately before or after training.",
+    ingredients: ["Maltodextrin"],
+    servings: "1kg pouch",
+    size: "1kg · Raspberry Lemonade",
+    usage: "Mix the recommended serving with water and shake until fully dissolved. Can be used pre-workout, intra-workout or post-workout. Amount required depends on body weight, training duration and individual carbohydrate needs.",
     sort_order: 5,
   },
   {
@@ -250,7 +258,7 @@ export const PRODUCTS = [
     name: "The Complete Stack",
     tagline: "Complete Performance System",
     description:
-      "HAVOC, DRIVE, CREATINE, GROW and FUEL together as a complete performance system. Build. Fuel. Perform.",
+      "HAVOC, DRIVE, CREATINE, GROW and GLYCOLOAD together as a complete performance system. Build. Fuel. Perform.",
     category: "stack",
     image: alphaStack,
     price: 259.99,

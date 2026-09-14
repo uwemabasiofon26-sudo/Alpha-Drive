@@ -56,10 +56,15 @@ export const INGREDIENT_RESEARCH = {
     note: "Supplementing with ~20–40 g of high-quality protein post-exercise supports muscle protein synthesis. The International Society of Sports Nutrition recommends 1.4–2.0 g/kg/day for athletes.",
     ref: "Jäger et al., J Int Soc Sports Nutr. 2017.",
   },
-  "instant cream of rice": {
-    name: "Instant Cream of Rice",
-    note: "Rice is a low-fibre, rapidly digesting carbohydrate source. Carbohydrate availability before and after training supports glycogen resynthesis and training quality.",
-    ref: "Burke et al., Int J Sport Nutr Exerc Metab. 2011.",
+  "l-theanine": {
+    name: "L-Theanine",
+    note: "L-Theanine is an amino acid found in tea leaves, commonly paired with caffeine in pre-workout formulas. Research suggests the combination supports focus and attention while smoothing out the jittery edge of stimulants alone.",
+    ref: "Haskell et al., Biol Psychol. 2008 (L-theanine and caffeine combination on cognition).",
+  },
+  "maltodextrin": {
+    name: "Maltodextrin",
+    note: "Maltodextrin is a fast-digesting carbohydrate derived from starch. It empties from the stomach quickly and is readily absorbed, making it a practical fuel source around training and a common choice for supporting muscle glycogen replenishment after exercise.",
+    ref: "Burke et al., J Sports Sci. 2011 (carbohydrates for training and competition).",
   },
   "oyster extract": {
     name: "Oyster Extract",

@@ -16,7 +16,7 @@ const FAQS = [
   },
   {
     q: "What is the Complete Performance Stack?",
-    a: "It's all five supplements — HAVOC, DRIVE, CREATINE, GROW and FUEL — bundled as a single one-time purchase at a discounted price of $259.99 (individual value $323.95).",
+    a: "It's all five supplements — HAVOC, DRIVE, CREATINE, GROW and GLYCOLOAD — bundled as a single one-time purchase at a discounted price of $259.99 (individual value $323.95).",
   },
   {
     q: "What sizes do the athletic T-shirts come in?",

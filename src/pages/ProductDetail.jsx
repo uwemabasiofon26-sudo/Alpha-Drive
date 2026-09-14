@@ -127,6 +127,12 @@ export default function ProductDetail() {
             <div className="border-y border-av-teal/40 py-6">
               <div className="hidden md:flex items-baseline gap-3">
                 <span className="font-display text-4xl font-bold text-av-gold">{formatNZD(price)}</span>
+                {product.compare_at_price && product.compare_at_price > price && (
+                  <>
+                    <span className="text-lg text-av-alloy/40 line-through">{formatNZD(product.compare_at_price)}</span>
+                    <span className="text-[11px] uppercase tracking-[0.2em] text-emerald-400 font-semibold">Launch Price</span>
+                  </>
+                )}
               </div>
             </div>
 

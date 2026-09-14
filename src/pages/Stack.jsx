@@ -12,7 +12,7 @@ import { useSEO } from "@/hooks/useSEO";
 export default function Stack() {
   useSEO({
     title: "The Complete Stack",
-    description: "HAVOC, DRIVE, CREATINE, GROW and FUEL bundled as a complete performance nutrition system — a discounted one-time purchase for training, nutrition and recovery.",
+    description: "HAVOC, DRIVE, CREATINE, GROW and GLYCOLOAD bundled as a complete performance nutrition system — a discounted one-time purchase for training, nutrition and recovery.",
     path: "/stack",
   });
 
@@ -23,7 +23,7 @@ export default function Stack() {
   // The stack is a fixed bundle of these five products specifically — not
   // every product in the "supplement" category (which now also includes
   // ERECTAVO and ALPHA NIGHT RECOVERY, which aren't part of this bundle).
-  const STACK_PRODUCT_IDS = ["havoc", "drive", "creatine", "grow", "fuel"];
+  const STACK_PRODUCT_IDS = ["havoc", "drive", "creatine", "grow", "glycoload"];
   const supps = (products || []).filter((p) => STACK_PRODUCT_IDS.includes(p.id));
   const stack = (products || []).find((p) => p.category === "stack");
 
@@ -65,7 +65,7 @@ export default function Stack() {
           <div className="bg-av-deep p-8 md:p-10">
             <p className="text-[11px] uppercase tracking-[0.25em] text-av-alloy/50">Individual Value</p>
             <p className="font-display text-5xl font-bold text-av-alloy/60 mt-3 line-through">{formatNZD(individualValue)}</p>
-            <p className="text-sm text-av-alloy/50 mt-3">HAVOC + DRIVE + CREATINE + GROW + FUEL bought separately</p>
+            <p className="text-sm text-av-alloy/50 mt-3">HAVOC + DRIVE + CREATINE + GROW + GLYCOLOAD bought separately</p>
           </div>
           <div className="bg-av-gold text-av-deep p-8 md:p-10">
             <p className="text-[11px] uppercase tracking-[0.25em] text-av-deep/70">Stack Price</p>

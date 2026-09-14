@@ -230,7 +230,7 @@ export default function Home() {
               One system. Five products. Total performance.
             </h2>
             <p className="mt-5 md:mt-6 text-av-alloy/70 leading-relaxed max-w-lg text-sm md:text-base">
-              HAVOC, DRIVE, CREATINE, GROW and FUEL together as a complete performance system — supporting preparation, training, nutrition and recovery.
+              HAVOC, DRIVE, CREATINE, GROW and GLYCOLOAD together as a complete performance system — supporting preparation, training, nutrition and recovery.
             </p>
             <div className="mt-6 md:mt-8 flex items-baseline gap-4 flex-wrap">
               <span className="font-display text-4xl md:text-5xl font-bold text-av-gold">{formatNZD(stackPrice)}</span>
