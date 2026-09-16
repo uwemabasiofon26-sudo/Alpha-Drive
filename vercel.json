@@ -5,6 +5,11 @@
       "source": "/product/fuel",
       "destination": "/product/glycoload",
       "permanent": true
+    },
+    {
+      "source": "/product/erectavo",
+      "destination": "/product/nitroxar",
+      "permanent": true
     }
   ],
   "rewrites": [

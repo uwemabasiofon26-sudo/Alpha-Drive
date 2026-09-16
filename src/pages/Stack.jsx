@@ -22,7 +22,7 @@ export default function Stack() {
 
   // The stack is a fixed bundle of these five products specifically — not
   // every product in the "supplement" category (which now also includes
-  // ERECTAVO and ALPHA NIGHT RECOVERY, which aren't part of this bundle).
+  // NITROXAR and ALPHA NIGHT RECOVERY, which aren't part of this bundle).
   const STACK_PRODUCT_IDS = ["havoc", "drive", "creatine", "grow", "glycoload"];
   const supps = (products || []).filter((p) => STACK_PRODUCT_IDS.includes(p.id));
   const stack = (products || []).find((p) => p.category === "stack");

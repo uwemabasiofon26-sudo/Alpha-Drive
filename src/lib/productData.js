@@ -12,7 +12,7 @@ import alphaGlycoload from "@/assets/products/alpha-glycoload.jpg";
 import alphaStack from "@/assets/products/alpha-stack.jpg";
 import tshirtBlack from "@/assets/products/tshirt-black.jpeg";
 import tshirtWhite from "@/assets/products/tshirt-white.jpeg";
-import alphaErectavo from "@/assets/products/alpha-erectavo.jpg";
+import alphaNitroxar from "@/assets/products/alpha-nitroxar.jpg";
 import alphaNightRecovery from "@/assets/products/alpha-night-recovery.jpg";
 
 // Shape reference (every field used somewhere in the UI):
@@ -165,20 +165,20 @@ export const PRODUCTS = [
     sort_order: 5,
   },
   {
-    id: "erectavo",
+    id: "nitroxar",
     inStock: true,
-    slug: "erectavo",
-    name: "ERECTAVO",
-    tagline: "Men's Health & Intimate Performance",
+    slug: "nitroxar",
+    name: "NITROXAR",
+    tagline: "Men's Blood Flow & Performance",
     description:
-      "A high-strength men's performance formula developed to support healthy circulation, physical stamina and everyday vitality — fully disclosed, no proprietary blends.",
+      "A high-strength men's performance formula developed to support healthy circulation, physical drive and everyday stamina — fully disclosed, no proprietary blends.",
     category: "supplement",
-    image: alphaErectavo,
+    image: alphaNitroxar,
     price: 79,
     benefits: [
       "Supports healthy blood flow and circulation",
       "Supports physical performance and stamina",
-      "Supports male vitality and desire",
+      "Supports male vitality and drive",
       "Supports normal testosterone levels through zinc",
       "Fully disclosed formula with clearly stated dosages",
     ],
