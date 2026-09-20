@@ -21,7 +21,7 @@ export const config = {
   api: { bodyParser: false },
 };
 
-const FROM_EMAIL = process.env.ORDER_NOTIFICATION_FROM || "Alpha Valour <onboarding@resend.dev>";
+const FROM_EMAIL = process.env.ORDER_NOTIFICATION_FROM || "Korzavo <onboarding@resend.dev>";
 const COMPANY_EMAIL = process.env.ORDER_NOTIFICATION_EMAIL || "support@alphavalour.com";
 
 function readRawBody(req) {
@@ -80,7 +80,7 @@ export default async function handler(req, res) {
           const customerResult = await resend.emails.send({
             from: FROM_EMAIL,
             to: customerEmail,
-            subject: "Your Alpha Valour order is confirmed",
+            subject: "Your Korzavo order is confirmed",
             html: customerOrderEmail({ customerName, items, total, orderId: session.id }),
           });
           if (customerResult.error) {

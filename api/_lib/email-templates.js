@@ -14,7 +14,7 @@ function wrapper(innerHtml) {
   <div style="background:${BRAND.bg};padding:32px 16px;font-family:Arial,Helvetica,sans-serif;">
     <div style="max-width:560px;margin:0 auto;background:${BRAND.card};border:1px solid rgba(240,221,188,0.2);border-radius:8px;overflow:hidden;">
       <div style="padding:28px 32px;border-bottom:1px solid rgba(240,221,188,0.2);">
-        <span style="color:${BRAND.text};font-size:20px;font-weight:bold;letter-spacing:2px;">ALPHA <span style="color:${BRAND.gold};">VALOUR</span></span>
+        <span style="color:${BRAND.gold};font-size:20px;font-weight:bold;letter-spacing:2px;">KORZAVO</span>
       </div>
       <div style="padding:32px;color:${BRAND.text};">
         ${innerHtml}
@@ -86,7 +86,7 @@ export function subscriberWelcomeEmail() {
   const inner = `
     <h1 style="font-size:22px;margin:0 0 8px;">You're on the list.</h1>
     <p style="color:${BRAND.muted};font-size:14px;line-height:1.6;">
-      Thanks for subscribing to Alpha Valour. Expect product drops, training insights and subscriber-only offers straight to your inbox.
+      Thanks for subscribing to Korzavo. Expect product drops, training insights and subscriber-only offers straight to your inbox.
     </p>`;
   return wrapper(inner);
 }

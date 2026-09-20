@@ -1,4 +1,4 @@
-// Static product catalog for Alpha Valour.
+// Static product catalog for Korzavo.
 // No database or CMS — this file IS the source of truth for product data.
 // To add or edit a product, edit this file directly and redeploy.
 
@@ -195,10 +195,10 @@ export const PRODUCTS = [
     sort_order: 6,
   },
   {
-    id: "alpha-night-recovery",
+    id: "night-recovery",
     inStock: true,
-    slug: "alpha-night-recovery",
-    name: "ALPHA NIGHT RECOVERY",
+    slug: "night-recovery",
+    name: "NIGHT RECOVERY",
     tagline: "Sleep & Recovery Formula",
     description:
       "A comprehensive nighttime formula created to support relaxation, restful sleep and overnight recovery — fully disclosed, no proprietary blends.",
@@ -230,7 +230,7 @@ export const PRODUCTS = [
     name: "Performance Tee — Black",
     tagline: "Athletic Apparel",
     description:
-      "A raglan-sleeve performance tee in black with the Alpha Valour crest — built for training, styled for everywhere else.",
+      "A raglan-sleeve performance tee in black with the Korzavo crest — built for training, styled for everywhere else.",
     category: "apparel",
     image: tshirtBlack,
     price: 45.0,
@@ -244,7 +244,7 @@ export const PRODUCTS = [
     name: "Performance Tee — White",
     tagline: "Athletic Apparel",
     description:
-      "A raglan-sleeve performance tee in white with the Alpha Valour crest — built for training, styled for everywhere else.",
+      "A raglan-sleeve performance tee in white with the Korzavo crest — built for training, styled for everywhere else.",
     category: "apparel",
     image: tshirtWhite,
     price: 45.0,

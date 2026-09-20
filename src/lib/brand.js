@@ -1,7 +1,11 @@
-export const LOGO_URL = "https://media.base44.com/images/public/6a88bf652a5df8dcfa09b143/c6983d45d_logo.png";
+import korzavoLogo from "@/assets/brand/korzavo-logo.png";
+
+export const LOGO_URL = korzavoLogo;
 export const CURRENCY = "NZD";
+// Domain stays alphavalour.com for now — the company plans to change the
+// domain separately later. Only the brand/display name is changing here.
 export const SITE_URL = "https://alphavalour.com";
-export const SITE_NAME = "Alpha Valour";
+export const SITE_NAME = "Korzavo";
 export const BRAND_TAGLINE = "Performance Nutrition & Supplements";
 
 export const formatNZD = (n) => `$${Number(n || 0).toFixed(2)}`;

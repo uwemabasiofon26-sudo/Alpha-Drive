@@ -9,7 +9,7 @@
 import { Resend } from "resend";
 import { subscriberWelcomeEmail, companySubscriberNotificationEmail } from "./_lib/email-templates.js";
 
-const FROM_EMAIL = process.env.ORDER_NOTIFICATION_FROM || "Alpha Valour <onboarding@resend.dev>";
+const FROM_EMAIL = process.env.ORDER_NOTIFICATION_FROM || "Korzavo <onboarding@resend.dev>";
 const COMPANY_EMAIL = process.env.ORDER_NOTIFICATION_EMAIL || "support@alphavalour.com";
 
 export default async function handler(req, res) {
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
     const welcomeResult = await resend.emails.send({
       from: FROM_EMAIL,
       to: email,
-      subject: "You're subscribed to Alpha Valour",
+      subject: "You're subscribed to Korzavo",
       html: subscriberWelcomeEmail(),
     });
     if (welcomeResult.error) {

@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: "What sizes do the athletic T-shirts come in?",
-    a: "The Alpha Valour performance tees are One Size – Stretch Fit, designed to comfortably fit a wide range of body types.",
+    a: "The Korzavo performance tees are One Size – Stretch Fit, designed to comfortably fit a wide range of body types.",
   },
   {
     q: "How should I use Alpha Havoc?",
@@ -64,7 +64,7 @@ function FaqItem({ item, index }) {
 export default function About() {
   useSEO({
     title: "About Us & FAQ",
-    description: "Alpha Valour is a performance nutrition and supplement brand built on fully disclosed formulas — no proprietary blends. Learn our story and get answers to common questions.",
+    description: "Korzavo is a performance nutrition and supplement brand built on fully disclosed formulas — no proprietary blends. Learn our story and get answers to common questions.",
     path: "/about",
     structuredData: {
       "@context": "https://schema.org",
@@ -81,7 +81,7 @@ export default function About() {
     <div className="bg-av-deep pt-28 md:pt-36 pb-24">
       <section className="mx-auto max-w-[1400px] px-5 md:px-10">
         <ScrollReveal>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">About Alpha Valour</p>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">About Korzavo</p>
           <h1 className="font-display text-4xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
             Performance, engineered with intent.
           </h1>
@@ -103,7 +103,7 @@ export default function About() {
 
         <ScrollReveal className="mt-16 max-w-3xl">
           <p className="text-lg text-av-alloy/80 leading-relaxed">
-            ALPHA VALOUR is a premium performance brand combining sports supplements, performance nutrition and athletic clothing. We exist for people who train with purpose and demand more from every session — combining the cold science of performance nutrition with the raw grit of athletic pursuit.
+            KORZAVO is a premium performance brand combining sports supplements, performance nutrition and athletic clothing. We exist for people who train with purpose and demand more from every session — combining the cold science of performance nutrition with the raw grit of athletic pursuit.
           </p>
         </ScrollReveal>
       </section>

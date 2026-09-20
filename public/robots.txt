@@ -1,4 +1,4 @@
-# Alpha Valour — https://alphavalour.com
+# Korzavo — https://alphavalour.com
 # Performance nutrition and supplement brand.
 
 # Default: everything is crawlable.

@@ -7,9 +7,9 @@ export default function Logo({ className, imgClassName }) {
     <div className={cn("flex items-center", className)}>
       <Image
         src={LOGO_URL}
-        alt="ALPHA VALOUR"
+        alt="KORZAVO"
         fittingType="fit"
-        className={cn("h-12 w-12 md:h-14 md:w-14 rounded-full", imgClassName)}
+        className={cn("h-7 md:h-8 w-auto", imgClassName)}
       />
     </div>
   );

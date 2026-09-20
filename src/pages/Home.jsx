@@ -39,7 +39,7 @@ function Rating({ value = 4.9, count = 128, className }) {
 export default function Home() {
   useSEO({
     title: "Performance Nutrition & Supplements",
-    description: "Alpha Valour is a performance nutrition and supplement brand. Fully disclosed pre-workout, creatine, protein and recovery formulas — no proprietary blends, ever.",
+    description: "Korzavo is a performance nutrition and supplement brand. Fully disclosed pre-workout, creatine, protein and recovery formulas — no proprietary blends, ever.",
     path: "/",
   });
 
@@ -225,7 +225,7 @@ export default function Home() {
         </ParallaxText>
         <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <ScrollReveal>
-            <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">The Alpha Valour Stack</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">The Korzavo Stack</p>
             <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy">
               One system. Five products. Total performance.
             </h2>
@@ -262,7 +262,7 @@ export default function Home() {
       <section className="py-10 md:py-16">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <ScrollReveal className="mb-6 md:mb-8">
-            <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Why Alpha Valour</p>
+            <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Why Korzavo</p>
             <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy max-w-3xl">
               No filler. No noise. Just performance.
             </h2>

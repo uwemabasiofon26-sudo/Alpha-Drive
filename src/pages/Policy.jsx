@@ -59,7 +59,7 @@ function Item({ s, i }) {
 export default function Policy() {
   useSEO({
     title: "Shipping, Returns & Privacy Policy",
-    description: "Alpha Valour's shipping, returns, refunds, privacy and terms of service policies.",
+    description: "Korzavo's shipping, returns, refunds, privacy and terms of service policies.",
     path: "/policy",
   });
 

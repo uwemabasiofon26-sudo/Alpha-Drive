@@ -97,7 +97,7 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-av-teal/30">
           <div className="flex flex-col md:flex-row items-center justify-between gap-5">
             <p className="text-[11px] uppercase tracking-[0.2em] text-av-alloy/40 order-2 md:order-1">
-              © {new Date().getFullYear()} ALPHA VALOUR — All Rights Reserved
+              © {new Date().getFullYear()} KORZAVO — All Rights Reserved
             </p>
             <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold/50 order-1 md:order-2">
               Fuel Your Strength · Elevate Your Performance

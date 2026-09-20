@@ -10,7 +10,7 @@ import { useSEO } from "@/hooks/useSEO";
 export default function PerformanceNutrition() {
   useSEO({
     title: "Performance Nutrition Supplements",
-    description: "Explore Alpha Valour's performance nutrition range — pre-workout, protein, creatine, daily performance and recovery supplements, all fully disclosed with exact dosages.",
+    description: "Explore Korzavo's performance nutrition range — pre-workout, protein, creatine, daily performance and recovery supplements, all fully disclosed with exact dosages.",
     path: "/performance-nutrition",
   });
 
@@ -21,7 +21,7 @@ export default function PerformanceNutrition() {
     <div className="bg-av-deep pt-28 md:pt-36">
       <section className="mx-auto max-w-[1400px] px-5 md:px-10 pb-16">
         <ScrollReveal>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Alpha Valour Performance Nutrition</p>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Korzavo Performance Nutrition</p>
           <h1 className="font-display text-4xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
             Fuel Your Strength. Elevate Your Performance.
           </h1>

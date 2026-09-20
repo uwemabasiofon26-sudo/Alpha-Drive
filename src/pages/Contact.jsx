@@ -7,7 +7,7 @@ import { useSEO } from "@/hooks/useSEO";
 export default function Contact() {
   useSEO({
     title: "Contact Us",
-    description: "Get in touch with Alpha Valour for questions about our performance nutrition and supplement products or your order.",
+    description: "Get in touch with Korzavo for questions about our performance nutrition and supplement products or your order.",
     path: "/contact",
   });
 

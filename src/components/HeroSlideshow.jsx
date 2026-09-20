@@ -38,7 +38,7 @@ export default function HeroSlideshow({ images = [], interval = 3200 }) {
           }
           className="absolute inset-0"
         >
-          <Image src={current} alt="Alpha Valour product" fittingType="fill" className="h-full w-full" />
+          <Image src={current} alt="Korzavo product" fittingType="fill" className="h-full w-full" />
         </motion.div>
       </AnimatePresence>
 

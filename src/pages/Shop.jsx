@@ -17,7 +17,7 @@ const FILTERS = [
 export default function Shop() {
   useSEO({
     title: "Shop Supplements & Performance Nutrition",
-    description: "Shop the full Alpha Valour range — pre-workout, creatine, protein, daily performance and recovery supplements. Fully disclosed formulas, no proprietary blends.",
+    description: "Shop the full Korzavo range — pre-workout, creatine, protein, daily performance and recovery supplements. Fully disclosed formulas, no proprietary blends.",
     path: "/shop",
   });
 

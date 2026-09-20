@@ -51,7 +51,7 @@ export default function Stack() {
     <div className="bg-av-deep pt-28 md:pt-36 pb-24">
       <section className="mx-auto max-w-[1400px] px-5 md:px-10">
         <ScrollReveal>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">The Alpha Valour Stack</p>
+          <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">The Korzavo Stack</p>
           <h1 className="font-display text-4xl md:text-7xl font-bold tracking-tight text-av-alloy max-w-4xl">
             One pack. Three systems. Total daily performance.
           </h1>

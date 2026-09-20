@@ -10,6 +10,11 @@
       "source": "/product/erectavo",
       "destination": "/product/nitroxar",
       "permanent": true
+    },
+    {
+      "source": "/product/alpha-night-recovery",
+      "destination": "/product/night-recovery",
+      "permanent": true
     }
   ],
   "rewrites": [

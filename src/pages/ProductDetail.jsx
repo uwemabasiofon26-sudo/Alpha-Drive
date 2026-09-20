@@ -24,7 +24,7 @@ export default function ProductDetail() {
   useSEO({
     title: product ? product.name : "Product",
     description: product
-      ? `${product.description} ${formatNZD(product.price)} — shop ${product.name} at Alpha Valour, performance nutrition and supplements.`.slice(0, 160)
+      ? `${product.description} ${formatNZD(product.price)} — shop ${product.name} at Korzavo, performance nutrition and supplements.`.slice(0, 160)
       : undefined,
     path: `/product/${slug}`,
     image: product?.image ? `${SITE_URL}${product.image}` : undefined,
@@ -37,7 +37,7 @@ export default function ProductDetail() {
           description: product.description,
           image: `${SITE_URL}${product.image}`,
           sku: product.id,
-          brand: { "@type": "Brand", name: "Alpha Valour" },
+          brand: { "@type": "Brand", name: "Korzavo" },
           offers: {
             "@type": "Offer",
             url: `${SITE_URL}/product/${product.slug}`,
