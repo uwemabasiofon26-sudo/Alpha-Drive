@@ -12,7 +12,7 @@ const SECTIONS = [
   },
   {
     title: "Returns & Refunds",
-    body: "Unopened supplements and unworn apparel may be returned within 30 days of delivery for a full refund, excluding return shipping. To initiate a return, contact our support team with your order number. Refunds are processed within 5 business days of receiving the returned items.",
+    body: "Unopened supplements may be returned within 30 days of delivery for a full refund, excluding return shipping. To initiate a return, contact our support team with your order number. Refunds are processed within 5 business days of receiving the returned items.",
   },
   {
     title: "Privacy Policy",

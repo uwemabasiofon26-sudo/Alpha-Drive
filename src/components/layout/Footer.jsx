@@ -44,7 +44,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Logo />
             <p className="mt-5 text-sm text-av-alloy/60 leading-relaxed max-w-xs">
-              Premium performance nutrition and athletic apparel. Built for people who train with purpose.
+              Premium performance nutrition and supplements. Built for people who train with purpose.
             </p>
           </div>
 
@@ -54,7 +54,6 @@ export default function Footer() {
               <li><Link to="/shop" className="hover:text-av-gold transition-colors">All Products</Link></li>
               <li><Link to="/performance-nutrition" className="hover:text-av-gold transition-colors">Performance Nutrition</Link></li>
               <li><Link to="/stack" className="hover:text-av-gold transition-colors">The Stack</Link></li>
-              <li><Link to="/shop?category=apparel" className="hover:text-av-gold transition-colors">Athletic Apparel</Link></li>
             </ul>
           </div>
 

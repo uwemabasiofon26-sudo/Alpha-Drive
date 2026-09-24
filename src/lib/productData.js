@@ -2,23 +2,24 @@
 // No database or CMS — this file IS the source of truth for product data.
 // To add or edit a product, edit this file directly and redeploy.
 
-import alphaHavoc from "@/assets/products/alpha-havoc.jpg";
-import alphaHavocFacts from "@/assets/products/alpha-havoc-facts.jpg";
-import alphaDrive from "@/assets/products/alpha-drive.jpg";
-import alphaDriveFacts from "@/assets/products/alpha-drive-facts.jpg";
+import explovexBottle from "@/assets/products/korzavo-explovex.jpg";
+import explovexFacts from "@/assets/products/korzavo-explovex-facts.jpg";
+import korzixBottle from "@/assets/products/korzavo-korzix.jpg";
+import korzixFacts from "@/assets/products/korzavo-korzix-facts.jpg";
 import alphaCreatine from "@/assets/products/alpha-creatine.jpg";
+import creatineFacts from "@/assets/products/korzavo-creatine-facts.jpg";
 import alphaGrow from "@/assets/products/alpha-grow.jpg";
 import alphaGlycoload from "@/assets/products/alpha-glycoload.jpg";
 import alphaStack from "@/assets/products/alpha-stack.jpg";
-import tshirtBlack from "@/assets/products/tshirt-black.jpeg";
-import tshirtWhite from "@/assets/products/tshirt-white.jpeg";
 import alphaNitroxar from "@/assets/products/alpha-nitroxar.jpg";
+import nitroxarFacts from "@/assets/products/korzavo-nitroxar-facts.jpg";
 import alphaNightRecovery from "@/assets/products/alpha-night-recovery.jpg";
+import nightRecoveryFacts from "@/assets/products/korzavo-night-recovery-facts.jpg";
 
 // Shape reference (every field used somewhere in the UI):
 // {
 //   id, slug, name, tagline, description,
-//   category: "supplement" | "apparel" | "stack",
+//   category: "supplement" | "stack",
 //   image, supplement_facts_image?,
 //   inStock: boolean,
 //   price, compare_at_price?,
@@ -30,16 +31,16 @@ import alphaNightRecovery from "@/assets/products/alpha-night-recovery.jpg";
 
 export const PRODUCTS = [
   {
-    id: "havoc",
+    id: "explovex",
     inStock: true,
-    slug: "havoc",
-    name: "HAVOC",
+    slug: "explovex",
+    name: "EXPLOVEX",
     tagline: "Extreme Pre-Workout",
     description:
       "A high-intensity pre-workout built for pump, endurance and focus — Raspberry Lemonade flavour, dosed for output that lasts the whole session.",
     category: "supplement",
-    image: alphaHavoc,
-    supplement_facts_image: alphaHavocFacts,
+    image: explovexBottle,
+    supplement_facts_image: explovexFacts,
     price: 69.99,
     benefits: [
       "Supports nitric oxide production and blood flow",
@@ -60,16 +61,16 @@ export const PRODUCTS = [
     sort_order: 1,
   },
   {
-    id: "drive",
+    id: "korzix",
     inStock: true,
-    slug: "drive",
-    name: "DRIVE",
+    slug: "korzix",
+    name: "KORZIX",
     tagline: "Premium Daily Performance Multi",
     description:
       "A 2-system daily vitality formula — a complete multivitamin and mineral foundation, plus a vitality and performance blend — in one 6-capsule daily pack.",
     category: "supplement",
-    image: alphaDrive,
-    supplement_facts_image: alphaDriveFacts,
+    image: korzixBottle,
+    supplement_facts_image: korzixFacts,
     price: 79,
     benefits: [
       "Complete multivitamin and mineral foundation",
@@ -97,6 +98,7 @@ export const PRODUCTS = [
       "Creatine and electrolytes for strength, performance and hydration — Raspberry Lemonade flavour, easy to mix any time of day.",
     category: "supplement",
     image: alphaCreatine,
+    supplement_facts_image: creatineFacts,
     price: 44.99,
     benefits: [
       "Supports strength and power output",
@@ -174,6 +176,7 @@ export const PRODUCTS = [
       "A high-strength men's performance formula developed to support healthy circulation, physical drive and everyday stamina — fully disclosed, no proprietary blends.",
     category: "supplement",
     image: alphaNitroxar,
+    supplement_facts_image: nitroxarFacts,
     price: 79,
     benefits: [
       "Supports healthy blood flow and circulation",
@@ -204,6 +207,7 @@ export const PRODUCTS = [
       "A comprehensive nighttime formula created to support relaxation, restful sleep and overnight recovery — fully disclosed, no proprietary blends.",
     category: "supplement",
     image: alphaNightRecovery,
+    supplement_facts_image: nightRecoveryFacts,
     price: 79,
     benefits: [
       "Supports relaxation before bedtime",
@@ -224,44 +228,16 @@ export const PRODUCTS = [
     sort_order: 7,
   },
   {
-    id: "performance-tee-black",
-    inStock: true,
-    slug: "performance-tee-black",
-    name: "Performance Tee — Black",
-    tagline: "Athletic Apparel",
-    description:
-      "A raglan-sleeve performance tee in black with the Korzavo crest — built for training, styled for everywhere else.",
-    category: "apparel",
-    image: tshirtBlack,
-    price: 45.0,
-    fit: "One Size – Stretch Fit",
-    sort_order: 8,
-  },
-  {
-    id: "performance-tee-white",
-    inStock: true,
-    slug: "performance-tee-white",
-    name: "Performance Tee — White",
-    tagline: "Athletic Apparel",
-    description:
-      "A raglan-sleeve performance tee in white with the Korzavo crest — built for training, styled for everywhere else.",
-    category: "apparel",
-    image: tshirtWhite,
-    price: 45.0,
-    fit: "One Size – Stretch Fit",
-    sort_order: 9,
-  },
-  {
     id: "complete-stack",
     inStock: true,
     slug: "complete-stack",
     name: "The Complete Stack",
     tagline: "Complete Performance System",
     description:
-      "HAVOC, DRIVE, CREATINE, GROW and GLYCOLOAD together as a complete performance system. Build. Fuel. Perform.",
+      "EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD together as a complete performance system. Build. Fuel. Perform.",
     category: "stack",
     image: alphaStack,
     price: 259.99,
-    sort_order: 10,
+    sort_order: 8,
   },
 ];

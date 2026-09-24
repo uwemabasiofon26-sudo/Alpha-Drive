@@ -16,14 +16,10 @@ const FAQS = [
   },
   {
     q: "What is the Complete Performance Stack?",
-    a: "It's all five supplements — HAVOC, DRIVE, CREATINE, GROW and GLYCOLOAD — bundled as a single one-time purchase at a discounted price of $259.99 (individual value $323.95).",
+    a: "It's all five supplements — EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD — bundled as a single one-time purchase at a discounted price of $259.99 (individual value $323.95).",
   },
   {
-    q: "What sizes do the athletic T-shirts come in?",
-    a: "The Korzavo performance tees are One Size – Stretch Fit, designed to comfortably fit a wide range of body types.",
-  },
-  {
-    q: "How should I use Alpha Havoc?",
+    q: "How should I use EXPLOVEX?",
     a: "Mix 1 scoop (15 g) with water 20–30 minutes before training. Start with a half scoop to assess tolerance if you're sensitive to caffeine. Do not exceed one serving per day.",
   },
 ];
@@ -103,7 +99,7 @@ export default function About() {
 
         <ScrollReveal className="mt-16 max-w-3xl">
           <p className="text-lg text-av-alloy/80 leading-relaxed">
-            KORZAVO is a premium performance brand combining sports supplements, performance nutrition and athletic clothing. We exist for people who train with purpose and demand more from every session — combining the cold science of performance nutrition with the raw grit of athletic pursuit.
+            KORZAVO is a premium performance brand combining sports supplements and performance nutrition. We exist for people who train with purpose and demand more from every session — combining the cold science of performance nutrition with the raw grit of athletic pursuit.
           </p>
         </ScrollReveal>
       </section>

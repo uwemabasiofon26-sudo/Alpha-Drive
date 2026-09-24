@@ -10,7 +10,6 @@ import { useSEO } from "@/hooks/useSEO";
 const FILTERS = [
   { key: "all", label: "All" },
   { key: "supplement", label: "Supplements" },
-  { key: "apparel", label: "Apparel" },
   { key: "stack", label: "Stacks" },
 ];
 
@@ -41,7 +40,7 @@ export default function Shop() {
             Shop
           </h1>
           <p className="mt-4 text-av-alloy/60 max-w-xl">
-            Performance nutrition and athletic apparel. Buy individually, or grab the complete stack and save.
+            Performance nutrition, built for people who train with purpose. Buy individually, or grab the complete stack and save.
           </p>
         </ScrollReveal>
 

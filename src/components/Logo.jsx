@@ -9,7 +9,7 @@ export default function Logo({ className, imgClassName }) {
         src={LOGO_URL}
         alt="KORZAVO"
         fittingType="fit"
-        className={cn("h-7 md:h-8 w-auto", imgClassName)}
+        className={cn("h-[25px] md:h-[29px] w-auto", imgClassName)}
       />
     </div>
   );

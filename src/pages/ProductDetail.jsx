@@ -17,8 +17,6 @@ export default function ProductDetail() {
   const { data: product, isLoading } = useProduct(slug);
   const { data: all } = useProducts();
   const { addItem } = useCart();
-  const [size, setSize] = useState(null);
-  const [color, setColor] = useState(null);
   const [added, setAdded] = useState(false);
 
   useSEO({
@@ -62,7 +60,6 @@ export default function ProductDetail() {
       </div>
     );
 
-  const isApparel = product.category === "apparel";
   const price = product.price;
 
   const related = (all || []).filter((p) => p.id !== product.id && p.category !== "stack").slice(0, 3);
@@ -75,8 +72,6 @@ export default function ProductDetail() {
       image: product.image,
       price,
       purchaseType: "one_time",
-      size,
-      color,
     });
     setAdded(true);
     setTimeout(() => setAdded(false), 1800);
@@ -135,31 +130,6 @@ export default function ProductDetail() {
                 )}
               </div>
             </div>
-
-            {/* APPAREL OPTIONS */}
-            {isApparel && (
-              <div className="space-y-5">
-                {product.colors?.length > 0 && (
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-av-alloy/50 mb-3">Colour</p>
-                    <div className="flex gap-2">
-                      {product.colors.map((c) => (
-                        <button
-                          key={c}
-                          onClick={() => setColor(c)}
-                          className={cn(
-                            "px-4 py-2 rounded-full text-xs uppercase tracking-[0.15em] border transition",
-                            color === c ? "border-av-gold bg-av-gold text-av-deep" : "border-av-teal text-av-alloy/70 hover:border-av-gold"
-                          )}
-                        >
-                          {c}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
 
             {/* ADD */}
             {product.inStock === false ? (

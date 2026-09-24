@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 import ScrollReveal from "@/components/ScrollReveal";
 import ParallaxText from "@/components/ParallaxText";
 import ReviewCarousel from "@/components/ReviewCarousel";
-import ApparelMarquee from "@/components/ApparelMarquee";
 import { useSEO } from "@/hooks/useSEO";
 import heroVideoMp4 from "@/assets/video/hero.mp4";
 import heroVideoWebm from "@/assets/video/hero.webm";
@@ -62,7 +61,6 @@ export default function Home() {
   const { data: products } = useProducts();
   const all = products || [];
   const supplements = all.filter((p) => p.category === "supplement");
-  const apparel = all.filter((p) => p.category === "apparel");
   const featured = supplements;
   const stack = all.find((p) => p.category === "stack");
   const stackPrice = stack?.price || 259.99;
@@ -185,39 +183,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* APPAREL */}
-      {apparel.length > 0 && (
-        <section className="relative py-10 md:py-16 border-y border-av-teal/30 overflow-hidden">
-          <div className="mx-auto max-w-[1400px] px-5 md:px-10 mb-6 md:mb-8">
-            <ScrollReveal>
-              <p className="text-[11px] uppercase tracking-[0.3em] text-av-gold mb-3">Athletic Apparel</p>
-              <h2 className="font-display text-3xl md:text-6xl font-bold tracking-tight text-av-alloy">
-                Performance Apparel
-              </h2>
-            </ScrollReveal>
-          </div>
-
-          <div className="hidden lg:block">
-            <ApparelMarquee items={apparel} />
-          </div>
-
-          <div className="lg:hidden px-5 grid grid-cols-2 gap-4">
-            {apparel.map((p) => (
-              <Link key={p.id} to={`/product/${p.slug}`} className="group block">
-                <div className="frame-corner aspect-[4/5] overflow-hidden bg-av-teal/20">
-                  <Image src={p.image} alt={p.name} fittingType="fill" className="h-full w-full transition-transform duration-700 group-hover:scale-105" />
-                </div>
-                <div className="mt-3">
-                  <h3 className="font-display text-base font-bold text-av-alloy">{p.name}</h3>
-                  <p className="text-xs text-av-alloy/80">{p.tagline}</p>
-                  <p className="mt-1 text-av-gold font-semibold text-sm">{formatNZD(p.price)}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* STACK */}
       <section className="relative py-10 md:py-16 overflow-hidden">
         <ParallaxText className="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
@@ -230,7 +195,7 @@ export default function Home() {
               One system. Five products. Total performance.
             </h2>
             <p className="mt-5 md:mt-6 text-av-alloy/70 leading-relaxed max-w-lg text-sm md:text-base">
-              HAVOC, DRIVE, CREATINE, GROW and GLYCOLOAD together as a complete performance system — supporting preparation, training, nutrition and recovery.
+              EXPLOVEX, KORZIX, CREATINE, GROW and GLYCOLOAD together as a complete performance system — supporting preparation, training, nutrition and recovery.
             </p>
             <div className="mt-6 md:mt-8 flex items-baseline gap-4 flex-wrap">
               <span className="font-display text-4xl md:text-5xl font-bold text-av-gold">{formatNZD(stackPrice)}</span>

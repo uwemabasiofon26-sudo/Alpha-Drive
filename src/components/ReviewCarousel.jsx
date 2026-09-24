@@ -4,13 +4,13 @@ import { Star, Quote } from "lucide-react";
 
 const REVIEWS = [
   {
-    quote: "HAVOC is the cleanest pre-workout I've used. No jitters, just locked-in focus and a pump that lasts the whole session.",
+    quote: "EXPLOVEX is the cleanest pre-workout I've used. No jitters, just locked-in focus and a pump that lasts the whole session.",
     name: "Marcus T.",
     role: "Powerlifter",
     rating: 5,
   },
   {
-    quote: "The stack keeps me consistent for the first time. DRIVE every morning, HAVOC before training — I feel the difference every week.",
+    quote: "The stack keeps me consistent for the first time. KORZIX every morning, EXPLOVEX before training — I feel the difference every week.",
     name: "Priya S.",
     role: "CrossFit Athlete",
     rating: 5,
