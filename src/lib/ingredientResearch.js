@@ -76,9 +76,9 @@ export const INGREDIENT_RESEARCH = {
     note: "Beetroot is a concentrated dietary source of nitrates, which are converted to nitric oxide in the body. This supports vasodilation, circulation and exercise performance, complementing citrulline's effects on the same pathway.",
     ref: "Jones, Sports Med. 2014 (dietary nitrate and exercise performance).",
   },
-  "horny goat weed extract": {
-    name: "Horny Goat Weed Extract",
-    note: "Horny Goat Weed (Epimedium) contains icariin, a flavonoid studied for its effects on nitric oxide signalling and its traditional use supporting male vitality, desire and energy.",
+  "epimedium extract": {
+    name: "Epimedium Extract",
+    note: "Epimedium (also known as horny goat weed) contains icariin, a flavonoid studied for its effects on nitric oxide signalling, and has traditionally been used to support vitality, circulation and sexual wellbeing.",
     ref: "Zhang & Yang, J Sex Med. 2006 (icariin and PDE5 activity).",
   },
   "zinc": {

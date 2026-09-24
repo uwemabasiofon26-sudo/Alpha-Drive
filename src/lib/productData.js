@@ -19,6 +19,8 @@ import nightRecoveryFacts from "@/assets/products/korzavo-night-recovery-facts.j
 // Shape reference (every field used somewhere in the UI):
 // {
 //   id, slug, name, tagline, description,
+//   long_description?: string[]  (extra paragraphs shown below the Add to Cart button),
+//   closing_line?: string        (sign-off line shown after Key Benefits),
 //   category: "supplement" | "stack",
 //   image, supplement_facts_image?,
 //   inStock: boolean,
@@ -171,25 +173,39 @@ export const PRODUCTS = [
     inStock: true,
     slug: "nitroxar",
     name: "NITROXAR",
-    tagline: "Men's Blood Flow & Performance",
+    tagline: "Blood Flow. Endurance. Performance.",
+    // `description` is the short intro (also used for SEO / structured data).
+    // `long_description` paragraphs and `closing_line` render further down the
+    // product page, after the price and Add to Cart button.
     description:
-      "A high-strength men's performance formula developed to support healthy circulation, physical drive and everyday stamina — fully disclosed, no proprietary blends.",
+      "NITROXAR™ is a performance formula designed for both men and women to support healthy circulation, endurance, training performance, vitality, and sexual wellbeing.",
+    long_description: [
+      "With L-Citrulline and Beetroot Extract, the formula supports nitric oxide production and healthy blood flow, helping deliver oxygen and nutrients to working muscles during exercise. This can support stronger muscle pumps, improved vascularity, sustained training performance, and a fuller, more defined look during workouts.",
+      "Epimedium Extract has traditionally been used to support vitality, circulation, and sexual wellbeing, while Zinc contributes to normal reproductive health and overall wellbeing.",
+      "By supporting circulation and exercise performance, NITROXAR™ is designed to help you train with greater intensity, maintain endurance across demanding sessions, and support efficient recovery between workouts.",
+    ],
+    closing_line: "PERFORM STRONGER. FEEL STRONGER. EVERYWHERE.",
     category: "supplement",
     image: alphaNitroxar,
     supplement_facts_image: nitroxarFacts,
     price: 79,
     benefits: [
-      "Supports healthy blood flow and circulation",
-      "Supports physical performance and stamina",
-      "Supports male vitality and drive",
-      "Supports normal testosterone levels through zinc",
-      "Fully disclosed formula with clearly stated dosages",
+      "Blood Flow",
+      "Oxygen & Nutrient Delivery",
+      "Muscle Pump",
+      "Vascularity",
+      "Endurance",
+      "Training Performance",
+      "Recovery",
+      "Vitality",
+      "Sexual Wellbeing",
     ],
+    // Names and doses match the Supplement Facts image.
     ingredients: [
       "L-Citrulline — 3600mg",
-      "Beetroot Extract — 600mg",
-      "Horny Goat Weed Extract — 540mg",
-      "Zinc — 20mg",
+      "Beetroot Extract (10:1) — 600mg",
+      "Epimedium Extract (10% Icariin) — 540mg",
+      "Zinc (as Zinc Acetate) — 20mg",
       "Black Pepper Extract — 12mg",
     ],
     servings: "15 servings",

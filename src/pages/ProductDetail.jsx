@@ -145,6 +145,15 @@ export default function ProductDetail() {
               </button>
             )}
 
+            {/* LONG DESCRIPTION (optional extra paragraphs) */}
+            {product.long_description?.length > 0 && (
+              <div className="space-y-4">
+                {product.long_description.map((para, i) => (
+                  <p key={i} className="text-av-alloy/70 leading-relaxed">{para}</p>
+                ))}
+              </div>
+            )}
+
             {/* KEY BENEFITS */}
             {product.benefits?.length > 0 && (
               <div>
@@ -158,6 +167,13 @@ export default function ProductDetail() {
                   ))}
                 </ul>
               </div>
+            )}
+
+            {/* CLOSING LINE (optional sign-off) */}
+            {product.closing_line && (
+              <p className="font-display text-sm md:text-base font-bold uppercase tracking-[0.2em] text-av-gold">
+                {product.closing_line}
+              </p>
             )}
 
             {/* SPECS */}
