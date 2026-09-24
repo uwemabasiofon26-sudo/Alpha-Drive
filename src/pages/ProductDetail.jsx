@@ -231,7 +231,7 @@ export default function ProductDetail() {
         )}
       </div>
 
-      <FuelBar product={product} purchaseType="one_time" price={price} size={size} color={color} />
+      <FuelBar product={product} purchaseType="one_time" price={price} />
     </div>
   );
 }

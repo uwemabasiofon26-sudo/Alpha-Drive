@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { formatNZD } from "@/lib/brand";
 import { useCart } from "@/context/CartContext";
 
-export default function FuelBar({ product, purchaseType, price, size, color }) {
+export default function FuelBar({ product, purchaseType, price }) {
   const [show, setShow] = useState(false);
   const { addItem } = useCart();
 
@@ -23,8 +23,6 @@ export default function FuelBar({ product, purchaseType, price, size, color }) {
       image: product.image,
       price,
       purchaseType,
-      size,
-      color,
     });
 
   return (
